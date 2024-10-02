@@ -1,0 +1,102 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('./images/rega.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+h1 {
+    text-align: center;
+    font-size: 45px;
+    margin: 30px 0;
+    color:gray;
+}
+
+.info {
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap:10px;
+    height:500px;
+    margin: 0 auto;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.info h2, .info h3 {
+    text-align: left;
+    font-size: larger;
+}
+.first {
+    padding: 15px;
+    border-radius: 5px;
+    /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
+}
+.second, .third {
+    padding: 0px;
+    margin-right: 45px;
+}
+
+.second label, .third label {
+    display: grid;
+    margin-bottom: 12px;
+    font-weight: bold;
+    color:white;
+}
+
+.second input[type="text"], .second input[type="password"], .second select, .third input[type="text"], .third input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid grey;
+    border-radius: 5px;
+    box-shadow: none;
+    font-size: 14px;
+    color: black;
+    margin-bottom: 10px;
+}
+.second input[type="file"]{
+    width: 100%;
+    padding:0px;
+    margin-bottom: 5%;
+}
+.num{
+    margin-bottom: 5%;
+    margin-top: 2%;
+}
+.footer{
+    position: absolute;
+    left: 46%;
+    bottom: 140px;
+    background-color: transparent;
+    color: white;
+    padding: 10px 20px;
+    border: solid;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+}
+.require{
+    color: red;
+    font-style: italic;
+    font-weight: bold;
+}
+.full{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 850px;
+    gap: 1.5%;
+    background:transparent;
+    border: 3px solid grey;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 15px white;
+    color:whitesmoke;
+    border-radius: 15px;
+    padding: 30px 30px;
+}
+.img{
+    margin-top:5%;
+}

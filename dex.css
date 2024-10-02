@@ -1,0 +1,27 @@
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    border-width: bold;
+    background-color: transparent;
+    width: 120px;
+    border-radius: 20px 1px;
+    z-index: 1;
+}
+.dropdown-content a {
+    color: purple;
+    font-weight: bold;
+    font-size: large;
+    padding: 20px 5px;
+    text-decoration: none;
+    display: block;
+}
+.dropdown-content a:hover {
+    text-decoration: underline;
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+}

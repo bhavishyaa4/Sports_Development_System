@@ -1,0 +1,163 @@
+body{
+    background-color: rgba(43,120,228,255);
+    /* border-left: 3% solid black;
+    margin:10px;
+    height:100px; */
+
+}
+h1{
+    font-family: 'Balsamiq Sans', cursive;
+    text-align: center;
+    font-size: 300%;
+    text-decoration: underline;
+} 
+h2{
+    font-family: 'Balsamiq Sans', cursive;
+    margin-top: -4%;
+    margin-left: 1%;
+    font-size: 200%;
+    color:#ff00ff;
+} 
+.deve{
+    font-family: 'Balsamiq Sans', cursive;
+    font-size: 120%;
+    color: #ffff00;
+} 
+.and{
+    font-family: 'Balsamiq Sans', cursive;
+    font-size: 120%;
+    margin-top: -1%;
+    margin-left: 5%;
+    color:#ff9900;
+} 
+.en{
+    font-family: 'Balsamiq Sans', cursive;
+    font-size: 120%;
+    margin-top: -1%;
+    margin-left: 5.5%;
+    color:#ffff00;
+} 
+.form{
+    max-width: 72%;
+    margin-left: 20%;
+    border-style: none;
+    padding:10px;
+    font-size: large;
+    margin-top: -25%;
+    margin-bottom: 2%;
+}
+.uu[type=text]{
+    width:28%;
+    height:25px;
+    margin-left: 2.2%;
+    background-color: rgba(0,255,255,255);
+    border-color:black;
+    border-style:solid;
+    margin-bottom: 4%;
+    margin-top: 1.5%;
+    font-family: 'Balsamiq Sans', cursive;
+}
+.u[type=text]{
+    width:28%;
+    height:25px;
+    margin-left: 8.7%;
+    background-color: rgba(0,255,255,255);
+    border-color:black;
+    border-style:solid;
+    margin-bottom: 4%;
+    font-family: 'Balsamiq Sans', cursive;
+}
+.c{
+    margin-left: 6.5%;
+    font-weight: bold;
+    font-family: 'Balsamiq Sans', cursive;
+}
+.cc{
+    margin-left: 4.4%;
+    font-weight: bold;
+    font-family: 'Balsamiq Sans', cursive;
+}
+.nnc{
+    margin-left: 6.4%;
+    font-weight: bold;
+    font-family: 'Balsamiq Sans', cursive;
+}
+.fn[type=text]{
+    width:28%;
+    height:25px;
+    margin-left: 0.5%;
+    background-color: rgba(0,255,255,255);
+    border-color:black;
+    border-style:solid;
+    margin-bottom: 4%;
+    margin-top: 1.5%;
+    font-family: 'Balsamiq Sans', cursive;
+}
+.fl[type=text]{
+    width:28%;
+    height:25px;
+    margin-left: 5.5%;
+    background-color: rgba(0,255,255,255);
+    border-color:black;
+    border-style:solid;
+    margin-bottom: 4%;
+    margin-top: 1.5%;
+    font-family: 'Balsamiq Sans', cursive;
+}
+.gg[type=radio]{
+    margin-left: 4.72%;
+    margin-bottom: 4%;
+}
+.gbody{
+    font-family: 'Balsamiq Sans', cursive;
+}
+.nu[type=text]{
+    width:28%;
+    height:25px;
+    margin-left: 6.1%;
+    background-color: rgba(0,255,255,255);
+    border-color:black;
+    border-style:solid;
+    margin-bottom: 4%;
+    margin-top: 1.5%;
+    font-family: 'Balsamiq Sans', cursive;
+}
+.nn{
+    margin-left: 2%;
+    font-weight: bold; 
+}
+.pp[type=text]{
+    width:28%;
+    height:25px;
+    margin-left: 2.8%;
+    background-color: rgba(0,255,255,255);
+    border-color:black;
+    border-style:solid;
+    margin-bottom: 4%;
+    margin-top: 1.5%;
+    font-family: 'Balsamiq Sans', cursive;
+}
+.p[type=text]{
+    width:28%;
+    height:25px;
+    margin-left: 1.9%;
+    background-color: rgba(0,255,255,255);
+    border-color:black;
+    border-style:solid;
+    margin-bottom: 4%;
+    margin-top: 1.5%;
+    font-family: 'Balsamiq Sans', cursive;
+}
+.b{
+    margin-left: 45%;
+    margin-right: auto;
+    margin-top:4%;
+    font-size: 79%;
+    color:black;
+    background-color: white;
+    border-style: solid;
+    border-color: rgb(15, 15, 15);
+    font-family: 'Balsamiq Sans', cursive;
+    font-weight: bold;
+    text-transform: uppercase;
+}  

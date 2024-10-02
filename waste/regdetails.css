@@ -1,0 +1,64 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url('background2.jpg');
+    /* background-size: cover; */
+    /* background-position: center; */
+    /* background-repeat: no-repeat; */
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+h1 {
+    text-align: left;
+    font-size: 45px;
+    margin: 12px 0;
+    color:yellow;
+}
+
+.info {
+    display:grid;
+    grid-template-columns:  1fr 1fr;
+    gap:10px;
+    height:500px;
+    margin: 0 auto;
+    padding: 25px;
+    border-radius: 4px;
+}
+.second, .third {
+    padding: 0px;
+    margin-right: 45px;
+}
+
+.second label, .third label {
+    display: grid;
+    margin-bottom: 12px;
+    font-weight: bold;
+    color:ghostwhite;
+}
+
+.second input[type="text"], .second input[type="password"], .second select,.third select, .third input[type="text"], .third input[type="number"], .third input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid grey;
+    border-radius: 5px;
+    box-shadow: none;
+    font-size: 14px;
+    color: black;
+    margin-bottom: 10px;
+}
+.footer{
+    position: absolute;
+    left: 86%;
+    bottom: 60px;
+    background-color: transparent;
+    color: white;
+    padding: 10px 20px;
+    border: solid;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+}
+.require{
+    color:red;
+}

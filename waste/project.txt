@@ -1,0 +1,51 @@
+Database details for project:
+
+
+table:
+
+1) admins
+
+CREATE TABLE admins(
+	id int auto_increment primary key,
+	name varchar(200) not null,
+	username varchar(200) not null unique,
+	email varchar(200) not null unique,
+	password varchar(60) not null,
+	role char(20) not null,
+	status boolean default 0,
+	generated_at datetime not null,
+	updated_at datetime null
+)
+
+
+2) sports_categories
+
+CREATE TABLE sports_categories(
+	id int auto_increment primary key,
+	name varchar(200) not null,
+	status boolean default 0,
+	generated_at datetime not null,
+	updated_at datetime null,
+	generated_by int not null,
+	updated_by int null
+);
+
+3) sports
+
+CREATE TABLE sports(
+	id int auto_increment primary key,
+	academy_category_id int not null,
+	name varchar(200) not null,
+	status boolean default 0,
+	generated_at datetime not null,
+	updated_at datetime null,
+	generated_by int not null,
+	updated_by int null
+);
+
+ADD AS ADMIN:
+
+
+INSERT INTO `admins` (`id`, `name`, `username`, `email`, `password`, `role`, `status`, `generated_at`, `updated_at`) VALUES (NULL, 'Radhika Kumari Khadka', 'radhika001', 'radhika001@gmail.com', 'radhika123', 'admin', '1', '2023-06-17 14:57:00', NULL);
+INSERT INTO `admins` (`id`, `name`, `username`, `email`, `password`, `role`, `status`, `generated_at`, `updated_at`) VALUES (NULL, 'Bhavishya Sunuwar Rai', 'bhavishya04', 'bhavishyasunuwarrai4@gmail.com', MD5('bhavishya444'), 'admin', '1', '2023-06-17 14:30:53.000000', NULL), (NULL, 'Tester One', 'test1', 'test@gmail.com', 'test111', 'tester', '0', '2023-06-17 14:30:53.000000', NULL);
+INSERT INTO `admins` (`id`, `name`, `username`, `email`, `password`, `role`, `status`, `generated_at`, `updated_at`) VALUES (NULL, 'Tester Two', 'test2', 'test2@gmail.com', MD5('test22'), 'tester', '0', '2023-06-17 14:39:49.000000', NULL);
