@@ -31,8 +31,8 @@ if (isset($_POST['submit'])) {
             if ($email == $rowUser['email'] && $password == $rowUser['password']) {
                 session_start();
                 $_SESSION['userId'] = $userId;
-                $_SESSION['email'] = $email; // Store email in the session
-                $_SESSION['password'] = $password; // Store password in the session
+                $_SESSION['email'] = $email;
+                $_SESSION['password'] = $password; 
 
                 // Set a cookie to last for 30 days
                 $cookie_name = "user";
