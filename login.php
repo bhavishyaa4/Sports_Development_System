@@ -16,7 +16,7 @@ if (isset($_POST['submit'])) {
     }
 
     if (empty($errors)) {
-        // User tries to log in
+        //Testing empty fields
         $selectUser = "SELECT * FROM `user_register` WHERE `email` = '$email' AND `password` = '$password'";
         $resUser = mysqli_query($con, $selectUser);
 
