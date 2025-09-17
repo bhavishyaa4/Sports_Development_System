@@ -81,8 +81,8 @@ $result = mysqli_query($con,$select);
     margin:0 40px;
 }
 #navbar ul li a{
-    text-decoration: none;s
-    color: purple;
+    text-decoration: none;
+    
 }
 #navbar ul li a:hover{
     color:blue;
