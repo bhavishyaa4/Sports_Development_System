@@ -1,6 +1,6 @@
 <?php
 include 'connect.php';
-if(isset($_POST['submit'])){
+if (isset($_POST['submit'])) {
     $fname = $_POST['fname'];
     $uname = $_POST['uname'];
     $email = $_POST['email'];
@@ -9,29 +9,29 @@ if(isset($_POST['submit'])){
     $error = array();
     $u = "SELECT email FROM applicant_register WHERE email = '$email'";
     $uu = mysqli_query($con, $u);
-    if(empty($fname)){
+    if (empty($fname)) {
         $error['rfname'] = "*Username Is Required!!*";
     }
-    if(empty($uname)){
+    if (empty($uname)) {
         $error['runame'] = "*Username Is Required!!*";
     }
-    if(empty($email)){
+    if (empty($email)) {
         $error['remail'] = "*Email Is Required!!*";
     }
-    if(empty($category)){
+    if (empty($category)) {
         $error['rcategory'] = "*Category Is Required!!*";
     }
-    if(empty($sp)){
+    if (empty($sp)) {
         $error['rsports'] = "*Sports Name Is Required!!*";
     }
 
-    if(count($error) == 0){
+    if (count($error) == 0) {
         $sql = "INSERT INTO `applicant_register` (name, username, email, sports, category) VALUES ('$fname', '$uname', '$email', '$sp', '$category')";
         $result = mysqli_query($con, $sql);
-        if($result){
+        if ($result) {
             echo "DATA HAS BEEN INSERTED SUCCESSFULLY..";
             // header('location:show.php');
-        }else{
+        } else {
             die(mysqli_error($con));
         }
     }
@@ -39,9 +39,11 @@ if(isset($_POST['submit'])){
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="images/new_logo.png">
     <title>REGISTRATION DETAILS:</title>
 </head>
 <style>
@@ -63,7 +65,7 @@ if(isset($_POST['submit'])){
 
     .info {
         display: grid;
-        grid-template-columns:  1fr 1fr;
+        grid-template-columns: 1fr 1fr;
         gap: 10px;
         height: 500px;
         margin: 0 auto;
@@ -120,38 +122,39 @@ if(isset($_POST['submit'])){
         color: red;
     }
 </style>
+
 <body>
     <h1>REGISTRATION DETAILS</h1>
     <div class="info">
         <div class="second">
             <form method="post" enctype="multipart/form-data">
                 <label>Name</label>
-                <input type="text" name="fname" id="fname" placeholder="Aayush" value=""/>
+                <input type="text" name="fname" id="fname" placeholder="Aayush" value="" />
                 <p class="require" style="color:red;font-style:italic;font-size:20px;">
                     <?php
-                    if(isset($error['rfname'])){
+                    if (isset($error['rfname'])) {
                         echo $error['rfname'];
                     }
                     ?>
                 </p>
                 <label>Username</label>
-                <input type="text" name="uname" id="uname" placeholder="Aayush007" value=""/>
-                <p class="require"  style="color:red;font-style:italic;font-size:20px;">
+                <input type="text" name="uname" id="uname" placeholder="Aayush007" value="" />
+                <p class="require" style="color:red;font-style:italic;font-size:20px;">
                     <?php
-                    if(isset($error['runame'])){
+                    if (isset($error['runame'])) {
                         echo $error['runame'];
                     }
                     ?>
                 </p>
                 <label>Category</label>
-                <select name="category">  
+                <select name="category">
                     <option value="Coach">Coach</option>
                     <option value="Volunteer">Volunteer</option>
                     <option value="Player">Player</option>
                 </select>
                 <p class="require">
                     <?php
-                    if(isset($error['rcategory'])){
+                    if (isset($error['rcategory'])) {
                         echo $error['rcategory'];
                     }
                     ?>
@@ -159,19 +162,19 @@ if(isset($_POST['submit'])){
         </div>
         <div class="third">
             <label>Email</label>
-            <input type="text" name="email" id="email" placeholder="inntaayush@gmail.com" value=""/>
+            <input type="text" name="email" id="email" placeholder="inntaayush@gmail.com" value="" />
             <p class="require" style="color:red;font-style:italic;font-size:20px;">
                 <?php
-                if(isset($error['remail'])){
+                if (isset($error['remail'])) {
                     echo $error['remail'];
                 }
                 ?>
             </p>
             <label>Sports</label>
-            <input type="text" name="sp" id="sp" placeholder="Enter your sport" value=""/>
+            <input type="text" name="sp" id="sp" placeholder="Enter your sport" value="" />
             <p class="require" style="color:red;font-style:italic;font-size:20px;">
                 <?php
-                if(isset($error['rsports'])){
+                if (isset($error['rsports'])) {
                     echo $error['rsports'];
                 }
                 ?>
@@ -181,4 +184,5 @@ if(isset($_POST['submit'])){
     <button type="submit" name="submit" class="footer">REGISTER</button>
     </form>
 </body>
+
 </html>

@@ -32,11 +32,11 @@ if (isset($_POST['submit'])) {
                 session_start();
                 $_SESSION['userId'] = $userId;
                 $_SESSION['email'] = $email;
-                $_SESSION['password'] = $password; 
+                $_SESSION['password'] = $password;
 
                 // Set a cookie to last for 30 days
                 $cookie_name = "user";
-                $cookie_value = $email; 
+                $cookie_value = $email;
                 $cookie_expiry = time() + (30 * 24 * 60 * 60); // 30 days
 
                 setcookie($cookie_name, $cookie_value, $cookie_expiry, "/");
@@ -57,15 +57,18 @@ if (isset($_GET['err']) && $_GET['err'] == 1) {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="images/new_logo.png">
     <link rel="stylesheet" href="login.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>HOME PAGE</title>
 </head>
+
 <body>
     <div class="container">
         <div class="header">
@@ -112,4 +115,5 @@ if (isset($_GET['err']) && $_GET['err'] == 1) {
         </div>
     </div>
 </body>
+
 </html>

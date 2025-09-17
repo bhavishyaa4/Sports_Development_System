@@ -23,7 +23,7 @@ $number = isset($row['number']) ? $row['number'] : '';
 $sports = isset($row['sports']) ? $row['sports'] : '';
 $position = isset($row['position']) ? $row['position'] : '';
 
-if(isset($_POST['submit'])){
+if (isset($_POST['submit'])) {
     $newFname = $_POST['name'];
     $newEmail = $_POST['email'];
     $newNumber = $_POST['number'];
@@ -61,13 +61,13 @@ if(isset($_POST['submit'])){
         $error['rposition'] = "Position is required !!";
     }
 
-    if(count($error) == 0){
+    if (count($error) == 0) {
         // Update the user's data in the database
         $sqlUpdate = "UPDATE `user_register` SET email = '$newEmail', name = '$newFname', number = '$newNumber',sports = '$newSports',position = '$newPosition' WHERE id = $userId";
 
         $resultUpdate = mysqli_query($con, $sqlUpdate);
 
-        if($resultUpdate){
+        if ($resultUpdate) {
             echo "<script>";
             echo "alert('Profile Updated Successfully');";
             echo "window.location.href = 'dex.php';";
@@ -81,12 +81,15 @@ if(isset($_POST['submit'])){
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="images/new_logo.png">
     <link rel="stylesheet" href="new.css">
     <title>UPDATE PROFILE:</title>
 </head>
+
 <body>
     <div class="first">
         <div class="second">
@@ -96,35 +99,45 @@ if(isset($_POST['submit'])){
                     <label class="show">Name</label>
                     <input type="text" name="name" id="name" class="name" placeholder="Write New Name" value="<?php echo $name; ?>">
                     <p class="require">
-                        <?php if (isset($error['rfname'])) { echo $error['rfname']; } ?>
+                        <?php if (isset($error['rfname'])) {
+                            echo $error['rfname'];
+                        } ?>
                     </p>
                 </div>
                 <div class="input">
                     <label class="show">Email</label>
                     <input type="text" name="email" id="email" class="email" placeholder="Enter your email" value="<?php echo $email; ?>">
                     <p class="require">
-                        <?php if (isset($error['remail'])) { echo $error['remail']; } ?>
+                        <?php if (isset($error['remail'])) {
+                            echo $error['remail'];
+                        } ?>
                     </p>
                 </div>
                 <div class="input">
                     <label class="show">Number</label>
                     <input type="text" name="number" id="number" class="number" placeholder="Type Number" value="<?php echo $number; ?>">
                     <p class="require">
-                        <?php if (isset($error['rnumber'])) { echo $error['rnumber']; } ?>
+                        <?php if (isset($error['rnumber'])) {
+                            echo $error['rnumber'];
+                        } ?>
                     </p>
                 </div>
                 <div class="input">
                     <label class="show">Sports</label>
                     <input type="text" name="sports" id="sports" class="sports" placeholder="Type Sports" value="<?php echo $sports; ?>">
                     <p class="require">
-                        <?php if (isset($error['rsports'])) { echo $error['rsports']; } ?>
+                        <?php if (isset($error['rsports'])) {
+                            echo $error['rsports'];
+                        } ?>
                     </p>
                 </div>
                 <div class="input">
                     <label class="show">Position</label>
                     <input type="text" name="position" id="position" class="position" placeholder="Type Position" value="<?php echo $position; ?>">
                     <p class="require">
-                        <?php if (isset($error['rposition'])) { echo $error['rposition']; } ?>
+                        <?php if (isset($error['rposition'])) {
+                            echo $error['rposition'];
+                        } ?>
                     </p>
                 </div>
                 <button type="submit" name="submit" id="submit" class="submit">UPDATE PROFILE</button>
@@ -132,4 +145,5 @@ if(isset($_POST['submit'])){
         </div>
     </div>
 </body>
+
 </html>

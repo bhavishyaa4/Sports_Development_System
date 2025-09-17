@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="images/new_logo.png">
     <title>About Sports Development System</title>
     <style>
-
         header {
             /* background-color: #333; */
             color: black;
@@ -41,14 +41,16 @@
             bottom: 0;
             width: 100%;
         }
-        *{
+
+        * {
             margin: 0;
             padding: 0;
         }
+
         /* .container{
             background: linear-gradient(to right, white,#caddeb);
         } */
-        .header{
+        .header {
             width: 100%;
             height: 90px;
             background-color: grey;
@@ -56,84 +58,95 @@
             justify-content: space-between;
             align-items: center;
         }
-        ul{
+
+        ul {
             display: flex;
         }
-        li{
+
+        li {
             margin-left: 20px;
             list-style: none;
         }
-        li a{
+
+        li a {
             text-decoration: none;
             color: black;
         }
 
-        .header #logo{
-    top: 20px;
-    font-size: 30px;
-    z-index: 997;
-    font-weight: bold;
-    color: yellow;
-    margin-left: 20px;
-}
-.logout{
-    margin-right: 20px;
-}
-.logout{
-    height: 50px;
-    width: 120px;
-    top: 20px;
-    right: 3%;
-    display:grid;
-    place-items: center;
-    background:lime;
-    border-radius: 1px 30px;
-    font-weight: bold;
-    cursor: pointer;
-}
-.logout:hover{
-    background-color: orangered;
-}
-.logout a{
-    color:black;
-}
-#navbar ul :not(:last-child) a:hover,
-#navbar ul :not(:last-child) a:focus{
-    border-bottom:2px solid white;
-    border-radius: 1px 11px;
-}
-#navbar ul li{
-    font-size: 22px;
-    font-weight:    bold;
-    margin: 0 40px;
-}
-#navbar ul li a{
-    text-decoration: none;
-    color: purple;
-}
-#navbar ul li a:hover{
-    color:blue;
-}
+        .header #logo {
+            top: 20px;
+            font-size: 30px;
+            z-index: 997;
+            font-weight: bold;
+            color: yellow;
+            margin-left: 20px;
+        }
+
+        .logout {
+            margin-right: 20px;
+        }
+
+        .logout {
+            height: 50px;
+            width: 120px;
+            top: 20px;
+            right: 3%;
+            display: grid;
+            place-items: center;
+            background: lime;
+            border-radius: 1px 30px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .logout:hover {
+            background-color: orangered;
+        }
+
+        .logout a {
+            color: black;
+        }
+
+        #navbar ul :not(:last-child) a:hover,
+        #navbar ul :not(:last-child) a:focus {
+            border-bottom: 2px solid white;
+            border-radius: 1px 11px;
+        }
+
+        #navbar ul li {
+            font-size: 22px;
+            font-weight: bold;
+            margin: 0 40px;
+        }
+
+        #navbar ul li a {
+            text-decoration: none;
+            color: purple;
+        }
+
+        #navbar ul li a:hover {
+            color: blue;
+        }
     </style>
 </head>
 
 <body>
-<div class="container">
+    <div class="container">
         <div class="header">
             <div id="logo">SportsZen</div>
-        <div id="navbar">
-            <ul>
-                <li><a href="index.php">Home</a></li>
-                <li><a href="viewsa.php">Sports Academy</a></li>
-                <!-- <li><a href="apply.php">Apply</a></li> -->
-                <li><a href="aboutus.php">About Us</a></li>
-            </ul>
-        </div>
-        <div class="out">
+            <div id="navbar">
+                <ul>
+                    <li><a href="index.php">Home</a></li>
+                    <li><a href="viewsa.php">Sports Academy</a></li>
+                    <!-- <li><a href="apply.php">Apply</a></li> -->
+                    <li><a href="aboutus.php">About Us</a></li>
+                </ul>
+            </div>
+            <div class="out">
                 <button class="logout"><a href="login.php">Login/Register</a></button>
             </div>
         </div>
-        </div>
+    </div>
     <header>
         <h1>Sports Development System</h1>
     </header>

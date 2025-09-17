@@ -21,7 +21,7 @@ $name = isset($row['name']) ? $row['name'] : '';
 $email = isset($row['email']) ? $row['email'] : '';
 $role = isset($row['role']) ? $row['role'] : '';
 
-if(isset($_POST['submit'])){
+if (isset($_POST['submit'])) {
     $newFname = $_POST['name'];
     $newEmail = $_POST['email'];
     $newRole = $_POST['role'];
@@ -49,13 +49,13 @@ if(isset($_POST['submit'])){
         $error['rrole'] = "Role is required !!";
     }
 
-    if(count($error) == 0){
+    if (count($error) == 0) {
         // Update the user's data in the database
         $sqlUpdate = "UPDATE `admins` SET email = '$newEmail', name = '$newFname',role = '$newRole' WHERE id = $adminId";
 
         $resultUpdate = mysqli_query($con, $sqlUpdate);
 
-        if($resultUpdate){
+        if ($resultUpdate) {
             echo "<script>";
             echo "alert('Profile Updated Successfully');";
             echo "window.location.href = 'userhome.php';";
@@ -69,12 +69,15 @@ if(isset($_POST['submit'])){
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="images/new_logo.png">
     <link rel="stylesheet" href="new.css">
     <title>UPDATE PROFILE:</title>
 </head>
+
 <body>
     <div class="first">
         <div class="second">
@@ -84,21 +87,27 @@ if(isset($_POST['submit'])){
                     <label class="show">Name</label>
                     <input type="text" name="name" id="name" class="name" placeholder="Write New Name" value="<?php echo $name; ?>">
                     <p class="require">
-                        <?php if (isset($error['rfname'])) { echo $error['rfname']; } ?>
+                        <?php if (isset($error['rfname'])) {
+                            echo $error['rfname'];
+                        } ?>
                     </p>
                 </div>
                 <div class="input">
                     <label class="show">Email</label>
                     <input type="text" name="email" id="email" class="email" placeholder="Enter your email" value="<?php echo $email; ?>">
                     <p class="require">
-                        <?php if (isset($error['remail'])) { echo $error['remail']; } ?>
+                        <?php if (isset($error['remail'])) {
+                            echo $error['remail'];
+                        } ?>
                     </p>
                 </div>
                 <div class="input">
                     <label class="show">Role</label>
                     <input type="text" name="role" id="role" class="role" placeholder="Type Role" value="<?php echo $role; ?>">
                     <p class="require">
-                        <?php if (isset($error['rrole'])) { echo $error['rrole']; } ?>
+                        <?php if (isset($error['rrole'])) {
+                            echo $error['rrole'];
+                        } ?>
                     </p>
                 </div>
                 <button type="submit" name="submit" id="submit" class="submit">UPDATE PROFILE</button>
@@ -106,4 +115,5 @@ if(isset($_POST['submit'])){
         </div>
     </div>
 </body>
+
 </html>

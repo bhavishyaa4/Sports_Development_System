@@ -9,7 +9,7 @@ if (isset($_POST['submit'])) {
     $fname = $_POST['fname'];
     $mobile = $_POST['mobile'];
     $image = $_FILES['image']["name"];
-    move_uploaded_file($_FILES["image"]["tmp_name"], "doc/".$image);
+    move_uploaded_file($_FILES["image"]["tmp_name"], "doc/" . $image);
     $error = array();
 
     // Check if the email already exists in the database
@@ -49,7 +49,7 @@ if (isset($_POST['submit'])) {
         $sql = "INSERT INTO `user_register` (name, email, gender, image, number, password) VALUES ('$fname','$email', '$gender', '$image', '$mobile', '$password')";
         $result = mysqli_query($con, $sql);
 
-        if ($result) {  
+        if ($result) {
             echo "<script>";
             echo "alert('User Added Successfully');";
             echo "window.location.href = 'login.php';";
@@ -63,12 +63,15 @@ if (isset($_POST['submit'])) {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="images/new_logo.png">
     <title>REGISTER PAGE:</title>
     <link rel="stylesheet" href="ureg.css">
 </head>
+
 <body>
     <form class="f-body" name="form" id="form" method="post" action="" enctype="multipart/form-data">
         <h1 style="text-align: center;">REGISTER</h1>
@@ -80,65 +83,65 @@ if (isset($_POST['submit'])) {
                 <h3 style="padding:0px;margin-left: 45px;color:yellow;">DEVELOP</h3>
             </div>
             <div class="full">
-            <div class="second">
-                <label>Email</label>
-                <input type="text" name="email" id="email" autocomplete="off" placeholder="Enter your email" value=""/>
-                <p class="require">
-                    <?php
-                    if (isset($error['remail'])) {
-                        echo $error['remail'];
-                    }
-                    ?>
-                </p>
-                <label>Password</label>
-                <input type="password" class="password" id="password" name="password" autocomplete="off" placeholder="****" value=""/>
-                <p class="require">
-                    <?php
-                    if (isset($error['rpassword'])) {
-                        echo $error['rpassword'];
-                    }
-                    ?>
-                </p>
-                <label>Gender</label>
-                <select name="gender">
-                    <option value="select">Select</option>
-                    <option value="male">MALE</option>
-                    <option value="female">FEMALE</option>
-                    <option value="others">OTHERS</option>
-                </select>
+                <div class="second">
+                    <label>Email</label>
+                    <input type="text" name="email" id="email" autocomplete="off" placeholder="Enter your email" value="" />
+                    <p class="require">
+                        <?php
+                        if (isset($error['remail'])) {
+                            echo $error['remail'];
+                        }
+                        ?>
+                    </p>
+                    <label>Password</label>
+                    <input type="password" class="password" id="password" name="password" autocomplete="off" placeholder="****" value="" />
+                    <p class="require">
+                        <?php
+                        if (isset($error['rpassword'])) {
+                            echo $error['rpassword'];
+                        }
+                        ?>
+                    </p>
+                    <label>Gender</label>
+                    <select name="gender">
+                        <option value="select">Select</option>
+                        <option value="male">MALE</option>
+                        <option value="female">FEMALE</option>
+                        <option value="others">OTHERS</option>
+                    </select>
 
-                <label class="img">Image</label>
-                <input type="file" id="image" name="image" accept="doc/*">
+                    <label class="img">Image</label>
+                    <input type="file" id="image" name="image" accept="doc/*">
 
-            </div>
-            <div class="third">
-                <label>Name</label>
-                <input type="text" name="fname" id="fname" autocomplete="off" placeholder="Enter your name" value=""/>
-                <p class="require">
-                    <?php
-                    if (isset($error['rname'])) {
-                        echo $error['rname'];
-                    }
-                    ?>
-                </p>
-                <label>C.Password</label>
-                <input type="password" name="cpass" id="cpass" autocomplete="off" placeholder="***" value=""/>
-                <p class="require">
-                    <?php
-                    if (isset($error['rcpass'])) {
-                        echo $error['rcpass'];
-                    }
-                    ?>
-                </p>
+                </div>
+                <div class="third">
+                    <label>Name</label>
+                    <input type="text" name="fname" id="fname" autocomplete="off" placeholder="Enter your name" value="" />
+                    <p class="require">
+                        <?php
+                        if (isset($error['rname'])) {
+                            echo $error['rname'];
+                        }
+                        ?>
+                    </p>
+                    <label>C.Password</label>
+                    <input type="password" name="cpass" id="cpass" autocomplete="off" placeholder="***" value="" />
+                    <p class="require">
+                        <?php
+                        if (isset($error['rcpass'])) {
+                            echo $error['rcpass'];
+                        }
+                        ?>
+                    </p>
 
-                <label class="num">Number</label>
-                <input type="text" name="mobile" class="num" id="mobile" autocomplete="off" placeholder="Enter your number"  value=""/>
-                <p class="require">
-                    <?php
-                    if (isset($error['rmobile'])) {
-                        echo $error['rmobile'];
-                    }
-                      ?>
+                    <label class="num">Number</label>
+                    <input type="text" name="mobile" class="num" id="mobile" autocomplete="off" placeholder="Enter your number" value="" />
+                    <p class="require">
+                        <?php
+                        if (isset($error['rmobile'])) {
+                            echo $error['rmobile'];
+                        }
+                        ?>
                     </p>
                 </div>
             </div>
@@ -146,4 +149,5 @@ if (isset($_POST['submit'])) {
         <button class="footer" name="submit">SIGN-UP</button>
     </form>
 </body>
+
 </html>
