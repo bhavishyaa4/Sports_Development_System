@@ -11,7 +11,8 @@ $name = $username = $email = $password = $role = $status = '';
 $err = [];
 $success_message = '';
 
-function doesNameStartWithDigit($name) {
+function doesNameStartWithDigit($name)
+{
     return ctype_digit(substr($name, 0, 1));
 }
 
@@ -29,16 +30,16 @@ if (isset($_POST['submit'])) {
 
     $encrypted_password = md5($password);
 
-     // Check if the email already exists in the database
-     $check_email_query = "SELECT * FROM admins WHERE email = ?";
-     $stmt = $con->prepare($check_email_query);
-     $stmt->bind_param("s", $email);
-     $stmt->execute();
-     $result = $stmt->get_result();
- 
-     if ($result->num_rows > 0) {
-         $err['email'] = '*Email already exists*';
-     }
+    // Check if the email already exists in the database
+    $check_email_query = "SELECT * FROM admins WHERE email = ?";
+    $stmt = $con->prepare($check_email_query);
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        $err['email'] = '*Email already exists*';
+    }
 
     if (empty($name)) {
         $err['name'] = '*Name is required*';
@@ -70,7 +71,6 @@ if (isset($_POST['submit'])) {
             echo "alert('Admin Added Successfully');";
             echo "window.location.href = 'addadmin.php';";
             echo "</script>";
-
         } else {
             $err['database'] = "Error: " . $stmt->error;
         }
@@ -83,6 +83,7 @@ $con->close();
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -91,11 +92,12 @@ $con->close();
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <title>Adding Admin</title>
     <style>
-        *{
+        * {
             margin: 0;
             padding: 0;
         }
-        .header{
+
+        .header {
             width: 100%;
             height: 90px;
             background-color: grey;
@@ -103,266 +105,308 @@ $con->close();
             justify-content: space-between;
             align-items: center;
         }
-        ul{
+
+        ul {
             display: flex;
         }
-        li{
+
+        li {
             margin-left: 20px;
             list-style: none;
         }
-        li a{
+
+        li a {
             text-decoration: none;
             color: black;
         }
 
-        .header #logo{
-    top: 20px;
-    font-size: 30px;
-    z-index: 997;
-    font-weight: bold;
-    color: yellow;
-    margin-left: 20px;
-}
-.logout{
-    margin-right: 20px;
-}
-.logout{
-    height: 50px;
-    width: 120px;
-    top: 20px;
-    right: 3%;
-    display:grid;
-    place-items: center;
-    background:lime;
-    border-radius: 1px 30px;
-    font-weight: bold;
-}
-.logout:hover{
-    background-color: orangered;
-}
-.logout a{
-    color:black;
-}
-#navbar ul :not(:last-child) a:hover,
-#navbar ul :not(:last-child) a:focus{
-    border-bottom:2px solid white;
-    border-radius: 1px 11px;
-}
-#navbar ul li{
-    font-size: 22px;
-    font-weight:    bold;
-    margin: 0 40px;
-}
-#navbar ul li a{
-    text-decoration: none;
-    color: purple;
-}
-#navbar ul li a:hover{
-    color:blue;
-}
-.content{
-    display:flex;
-    flex-direction: column;
-    padding-left: 1%;
-}
-.content h1{
-    margin-top: 5%;
-}
-.content p{
-    margin-top: 10%;
-}
-h1{
-    text-decoration: underline;
-    font-style: italic;
-    font-size: 350%;
-}
-h1:hover{
-    color: lime;
-    transition: 0.5s;
-}
-p{
-    font-style:italic;
-    font-size: 250%;
-    font-weight: bold;
-}
-p:hover{
-    color:orange;
-    transition: 0.5s;
-}
-.icon{
-    position:fixed;
-    top:25%;
-    height:400px;
-    width:50px;
-    margin-left:96%;
-    background-color: grey;
-    border-radius: 60px 0 0 60px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-direction: column;
-}
-.icon:hover{
-    background-color: black;
-}
-.icon a{
-    color:yellow;
-}
-.icon a:hover{
-    color:red;
-}
-.info {
-    display:grid;
-    grid-template-columns: 1fr 1fr;
-    gap:10px;
-    height:400px;
-    margin: 0 auto;
-    margin-top:75px;
-    padding: 10px;
-    border-radius: 4px;
-    width: 800px;
-    background:transparent;
-    border: 3px solid black;
-    backdrop-filter: blur(20px);
-    box-shadow: 0 0 15px black;
-    color:whitesmoke;
-    border-radius: 11px;
-    padding: 17px 25px;
-    /* margin-left: -110px; */
-}
+        .header #logo {
+            top: 20px;
+            font-size: 30px;
+            z-index: 997;
+            font-weight: bold;
+            color: yellow;
+            margin-left: 20px;
+        }
 
-.info h2, .info h3 {
-    text-align: left;
-    font-size: larger;
-}
-.first {
-    padding: 15px;
-    border-radius: 5px;
-    /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
-}
-.second, .third {
-    padding: 0px;
-    margin-right: 45px;
-}
+        .logout {
+            margin-right: 20px;
+        }
 
-.second label, .third label {
-    display: grid;
-    margin-bottom: 22px;
-    font-weight: bold;
-    font-size: 18px;
-    color:black;
-}
+        .logout {
+            height: 50px;
+            width: 120px;
+            top: 20px;
+            right: 3%;
+            display: grid;
+            place-items: center;
+            background: lime;
+            border-radius: 1px 30px;
+            font-weight: bold;
+        }
 
-.second input[type="text"], .second input[type="password"], .second select, .third input[type="text"], .third input[type="number"], .third input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid grey;
-    border-radius: 5px;
-    box-shadow: none;
-    font-size: 14px;
-    color: black;
-    margin-bottom: 20px;
-}
-.footer {
-    width: 100px;
-    margin-top:;
-    margin-left:97%;
-    background-color: #4CAF50;
-    color: black;
-    padding: 10px;
-    text-align: center;
-    border-radius: 5px;
-    margin-top: 10%;
-    cursor: pointer;
-}
-.footer:hover{
-    background-color: yellow;
-}
-#error-message {
-    color: red;
-    font-size: 15px;
-    margin-bottom: 4%;
-    margin-top: -5%;
-}
-.success-message{
-    color: lime;
-    font-size: 25px;
-    text-align: center;
-    margin-top:20px;
-}
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-.dropdown-content {
-    display: none;
-    position: absolute;
-    border-width: bold;
-    border-style:solid;
-    background-color: grey;
-    width: 120px;
-    z-index: 1;
-}
-.dropdown-content a {
-    color: purple;
-    font-weight: bold;
-    font-size: large;
-    padding: 20px 5px;
-    text-decoration: none;
-    display: block;
-}
-.dropdown-content a:hover {
-    text-decoration: underline;
-}
-.dropdown:hover .dropdown-content {
-    display: block;
-}
+        .logout:hover {
+            background-color: orangered;
+        }
+
+        .logout a {
+            color: black;
+        }
+
+        #navbar ul :not(:last-child) a:hover,
+        #navbar ul :not(:last-child) a:focus {
+            border-bottom: 2px solid white;
+            border-radius: 1px 11px;
+        }
+
+        #navbar ul li {
+            font-size: 22px;
+            font-weight: bold;
+            margin: 0 40px;
+        }
+
+        #navbar ul li a {
+            text-decoration: none;
+            color: purple;
+        }
+
+        #navbar ul li a:hover {
+            color: blue;
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            padding-left: 1%;
+        }
+
+        .content h1 {
+            margin-top: 5%;
+        }
+
+        .content p {
+            margin-top: 10%;
+        }
+
+        h1 {
+            text-decoration: underline;
+            font-style: italic;
+            font-size: 350%;
+        }
+
+        h1:hover {
+            color: lime;
+            transition: 0.5s;
+        }
+
+        p {
+            font-style: italic;
+            font-size: 250%;
+            font-weight: bold;
+        }
+
+        p:hover {
+            color: orange;
+            transition: 0.5s;
+        }
+
+        .icon {
+            position: fixed;
+            top: 25%;
+            height: 400px;
+            width: 50px;
+            margin-left: 96%;
+            background-color: grey;
+            border-radius: 60px 0 0 60px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .icon:hover {
+            background-color: black;
+        }
+
+        .icon a {
+            color: yellow;
+        }
+
+        .icon a:hover {
+            color: red;
+        }
+
+        .info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            height: 400px;
+            margin: 0 auto;
+            margin-top: 75px;
+            padding: 10px;
+            border-radius: 4px;
+            width: 800px;
+            background: transparent;
+            border: 3px solid black;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 0 15px black;
+            color: whitesmoke;
+            border-radius: 11px;
+            padding: 17px 25px;
+            /* margin-left: -110px; */
+        }
+
+        .info h2,
+        .info h3 {
+            text-align: left;
+            font-size: larger;
+        }
+
+        .first {
+            padding: 15px;
+            border-radius: 5px;
+            /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
+        }
+
+        .second,
+        .third {
+            padding: 0px;
+            margin-right: 45px;
+        }
+
+        .second label,
+        .third label {
+            display: grid;
+            margin-bottom: 22px;
+            font-weight: bold;
+            font-size: 18px;
+            color: black;
+        }
+
+        .second input[type="text"],
+        .second input[type="password"],
+        .second select,
+        .third input[type="text"],
+        .third input[type="number"],
+        .third input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid grey;
+            border-radius: 5px;
+            box-shadow: none;
+            font-size: 14px;
+            color: black;
+            margin-bottom: 20px;
+        }
+
+        .footer {
+            width: 100px;
+            margin-left: 97%;
+            background-color: #4CAF50;
+            color: black;
+            padding: 10px;
+            text-align: center;
+            border-radius: 5px;
+            margin-top: 10%;
+            cursor: pointer;
+        }
+
+        .footer:hover {
+            background-color: yellow;
+        }
+
+        #error-message {
+            color: red;
+            font-size: 15px;
+            margin-bottom: 4%;
+            margin-top: -5%;
+        }
+
+        .success-message {
+            color: lime;
+            font-size: 25px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            border-width: bold;
+            border-style: solid;
+            background-color: grey;
+            width: 120px;
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: purple;
+            font-weight: bold;
+            font-size: large;
+            padding: 20px 5px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            text-decoration: underline;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
     </style>
 </head>
+
 <body>
     <div class="container">
         <div class="header">
             <div id="logo">SportsZen</div>
-        <div id="navbar">
-            <ul>
-                <li><a href="userhome.php">Home</a></li>
-                <li><a href="addsports.php">Add Sports Academy</a></li>
-                <li><a href="listsports.php">List Sports Academy</a></li>
-                <li><a href="listuser.php">List Users</a></li>
-                <li class="dropdown">
-                <a href="#" class="dropbtn">Sports</a>
-                <div class="dropdown-content">
-                <a href="createsports.php">Add New Sport</a>
-                <a href="adminSports.php">Delete Sport</a>
+            <div id="navbar">
+                <ul>
+                    <li><a href="userhome.php">Home</a></li>
+                    <li><a href="addsports.php">Add Sports Academy</a></li>
+                    <li><a href="listsports.php">List Sports Academy</a></li>
+                    <li><a href="listuser.php">List Users</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropbtn">Sports</a>
+                        <div class="dropdown-content">
+                            <a href="createsports.php">Add New Sport</a>
+                            <a href="adminSports.php">Delete Sport</a>
+                        </div>
+                    <li><a href="addadmin.php">Add Admin</a></li>
+                </ul>
             </div>
-                <li><a href="addadmin.php">Add Admin</a></li>
-            </ul>
+            <div class="dropdown">
+                <button class="logout">Logout/Change Password</button>
+                <div class="dropdown-content">
+                    <a href="logout.php">Logut</a>
+                    <a href="adminpasswordupdate.php">Change Password</a>
+                    <a href="updateadminprofile.php">Update Profile</a>
+                </div>
+            </div>
         </div>
-        <div class="dropdown">
-            <button class="logout">Logout/Change Password</button>
-            <div class="dropdown-content">
-        <a href="logout.php">Logut</a>
-        <a href="adminpasswordupdate.php">Change Password</a>
-        <a href="updateadminprofile.php">Update Profile</a>
-    </div>
-        </div>
-    </div>
-    <form method="POST" action="addadmin.php" onsubmit="return validateForm()">
-    <div class="info">
+        <form method="POST" action="addadmin.php" onsubmit="return validateForm()">
+            <div class="info">
                 <div class="second">
                     <label for="name">Name</label>
                     <input type="text" name="name" id="name" autocomplete="off" placeholder="Enter your name" value="">
                     <span id="error">
-                    <?php if (isset($err['name'])): ?>
-                        <p id="error-message"><?php echo $err['name']; ?></p>
-                    <?php endif; ?>
+                        <?php if (isset($err['name'])): ?>
+                            <p id="error-message"><?php echo $err['name']; ?></p>
+                        <?php endif; ?>
                     </span>
                     <label for="pass">Password</label>
                     <input type="password" class="password" id="pass" name="password" autocomplete="off" placeholder="****" value="">
                     <span id="error">
-                    <?php if (isset($err['password'])): ?>
-                        <p id="error-message"><?php echo $err['password']; ?></p>
-                    <?php endif; ?>
+                        <?php if (isset($err['password'])): ?>
+                            <p id="error-message"><?php echo $err['password']; ?></p>
+                        <?php endif; ?>
                     </span>
 
                     <label for="status">Status:</label>
@@ -372,46 +416,46 @@ p:hover{
                         <option value="0">Not Active</option>
                     </select>
                     <span id="error">
-                    <?php if (isset($err['status'])): ?>
-                        <p id="error-message"><?php echo $err['status']; ?></p>
-                    <?php endif; ?>
+                        <?php if (isset($err['status'])): ?>
+                            <p id="error-message"><?php echo $err['status']; ?></p>
+                        <?php endif; ?>
                     </span>
                     <button type="submit" name="submit" class="footer">ADD</button>
                 </div>
                 <div class="third">
-                <label for="email">Email</label>
+                    <label for="email">Email</label>
                     <input type="text" name="email" id="email" autocomplete="off" placeholder="Enter your email" value="">
                     <span id="error">
-                    <?php if (isset($err['email'])): ?>
-                        <p id="error-message"><?php echo $err['email']; ?></p>
-                    <?php endif; ?>
+                        <?php if (isset($err['email'])): ?>
+                            <p id="error-message"><?php echo $err['email']; ?></p>
+                        <?php endif; ?>
                     </span>
 
                     <label for="cpass">Confirm Password</label>
                     <input type="password" name="cpass" autocomplete="off" id="cpass" placeholder="****" value="">
                     <?php if (isset($err['cpass'])): ?>
                         <span id="error">
-                        <p id="error-message"><?php echo $err['cpass']; ?></p>
-                    <?php endif; ?>
-                    </span>
-                    <label for="role">Role</label>
-                    <input type="text" name="role" id="role" autocomplete="off" placeholder="Enter your role" value="">
-                    <?php if (isset($err['role'])): ?>
-                        <span id="error">
-                        <p id="error-message"><?php echo $err['role']; ?></p>
-                    <?php endif; ?>
+                            <p id="error-message"><?php echo $err['cpass']; ?></p>
+                        <?php endif; ?>
+                        </span>
+                        <label for="role">Role</label>
+                        <input type="text" name="role" id="role" autocomplete="off" placeholder="Enter your role" value="">
+                        <?php if (isset($err['role'])): ?>
+                            <span id="error">
+                                <p id="error-message"><?php echo $err['role']; ?></p>
+                            <?php endif; ?>
                 </div>
                 </span>
             </div>
             <span id="error">
-            <?php if (isset($err['database'])): ?>
-                <p id="error-message"><?php echo $err['database']; ?></p>
-            <?php endif; ?>
+                <?php if (isset($err['database'])): ?>
+                    <p id="error-message"><?php echo $err['database']; ?></p>
+                <?php endif; ?>
             </span>
             <span id="error">
-            <?php if (!empty($success_message)): ?>
-                <p><?php echo $success_message; ?></p>
-            <?php endif; ?>
+                <?php if (!empty($success_message)): ?>
+                    <p><?php echo $success_message; ?></p>
+                <?php endif; ?>
             </span>
             <div id="error-container"></div>
             <!-- <button type="submit" name="submit" class="footer">ADD</button> -->
@@ -476,4 +520,5 @@ p:hover{
 });
     </script> -->
 </body>
+
 </html>
