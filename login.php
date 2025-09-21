@@ -16,7 +16,6 @@ if (isset($_POST['submit'])) {
     }
 
     if (empty($errors)) {
-        //Testing empty fields
         $selectUser = "SELECT * FROM `user_register` WHERE `email` = '$email' AND `password` = '$password'";
         $resUser = mysqli_query($con, $selectUser);
 
@@ -37,11 +36,11 @@ if (isset($_POST['submit'])) {
                 // Set a cookie to last for 30 days
                 $cookie_name = "user";
                 $cookie_value = $email;
-                $cookie_expiry = time() + (30 * 24 * 60 * 60); // 30 days
+                $cookie_expiry = time() + (30 * 24 * 60 * 60);
 
                 setcookie($cookie_name, $cookie_value, $cookie_expiry, "/");
 
-                header('Location: dex.php');
+                header('Location: pages/userPages/dex.php');
                 exit();
             }
         } else {

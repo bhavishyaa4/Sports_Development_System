@@ -1,11 +1,11 @@
 <?php
 session_start();
 if (!isset($_SESSION['userId'])) {
-    header('location: ./login.php?err=1');
+    header('location: ../.././login.php?err=1');
 }
 ?>
 <?php
-include 'connect.php';
+include '../../connect.php';
 ?>
 <?php
 $select = "SELECT * FROM sports";
@@ -19,94 +19,11 @@ $result = mysqli_query($con, $select);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="images/new_logo.png">
+    <link rel="icon" type="image/png" href="../../images/new_logo.png">
     <title>SPORTS ACADEMY</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-        }
-
         .container {
             background: linear-gradient(to right, white, #caddeb);
-        }
-
-        .header {
-            width: 100%;
-            height: 90px;
-            background-color: grey;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        ul {
-            display: flex;
-        }
-
-        li {
-            margin-left: auto;
-            list-style: none;
-        }
-
-        li a {
-            text-decoration: none;
-            color: black;
-        }
-
-        .header #logo {
-            top: 50px;
-            font-size: 30px;
-            z-index: 997;
-            font-weight: bold;
-            color: yellow;
-            margin-left: 20px;
-        }
-
-        .logout {
-            margin-right: 20px;
-        }
-
-        .logout {
-            height: 50px;
-            width: 120px;
-            top: 20px;
-            right: 3%;
-            display: grid;
-            place-items: center;
-            background: lime;
-            border-radius: 1px 30px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .logout:hover {
-            background-color: orangered;
-        }
-
-        .logout a {
-            color: black;
-        }
-
-        #navbar ul :not(:last-child) a:hover,
-        #navbar ul :not(:last-child) a:focus {
-            border-bottom: 2px solid white;
-            border-radius: 1px 11px;
-        }
-
-        #navbar ul li {
-            font-size: 22px;
-            font-weight: bold;
-            margin: 0 40px;
-        }
-
-        #navbar ul li a {
-            text-decoration: none;
-            color: purple;
-        }
-
-        #navbar ul li a:hover {
-            color: blue;
         }
 
         h1 {
@@ -166,62 +83,12 @@ $result = mysqli_query($con, $select);
             color: black;
             text-decoration: none;
         }
-
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            border-width: bold;
-            background-color: transparent;
-            width: 120px;
-            border-radius: 20px 1px;
-            z-index: 1;
-        }
-
-        .dropdown-content a {
-            color: purple;
-            font-weight: bold;
-            font-size: large;
-            padding: 20px 5px;
-            text-decoration: none;
-            display: block;
-        }
-
-        .dropdown-content a:hover {
-            text-decoration: underline;
-        }
-
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
     </style>
 </head>
 
 <body>
     <div class="container">
-        <div class="header">
-            <div id="logo">SportsZen</div>
-            <div id="navbar">
-                <ul>
-                    <li><a href="dex.php">Home</a></li>
-                    <li><a href="sa.php">Sports Academy</a></li>
-                    <li><a href="apply.php">Apply</a></li>
-                    <li><a href="allaboutus.php">About Us</a></li>
-                </ul>
-            </div>
-            <div class="dropdown">
-                <button class="logout">Logout/Change Password</button>
-                <div class="dropdown-content">
-                    <a href="userlogout.php">Logut</a>
-                    <a href="userpasswordupdate.php">Change Password</a>
-                    <a href="updateprofile.php">Update Profile</a>
-                </div>
-            </div>
-        </div>
+        <?php include __DIR__ . "../../../includes/userHeader.php" ?>
         <div class="box">
             <h1> BROWSE YOUR SPORT!!!</h1>
         </div>
@@ -230,12 +97,12 @@ $result = mysqli_query($con, $select);
             while ($row = mysqli_fetch_assoc($result)) {
                 echo "
                     <div class='each-sport'>
-                        <img src='" . $row['image'] . "' style='height:180px;border-radius:10px;'>
+                        <img src='../../" . $row['image'] . "' style='height:180px;border-radius:10px;'>
                         <div class='name'>
                             <h1>" . $row['name'] . "</h1>
                             <h2>Start your journey as a " . $row['name'] . " player</h2>
                             <form action='' method='post'>
-                            <button><a href='Sport.php?name=" . $row['name'] . "'>Click to see more</a></button>
+                            <button><a href='../../sport.php?name=" . $row['name'] . "'>Click to see more</a></button>
                             </form>
                         </div>
                     </div>

@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'connect.php';
+include '../../connect.php';
 
 if (!isset($_SESSION['userId'])) {
     header("Location: login.php");
@@ -31,7 +31,6 @@ if (isset($_POST['submit'])) {
     $newPosition = $_POST['position'];
     $error = array();
 
-    // Check if the provided email already exists for another user
     $sqlCheckEmail = "SELECT * FROM `user_register` WHERE email = '$newEmail' AND id != $userId";
     $resultCheckEmail = mysqli_query($con, $sqlCheckEmail);
 
@@ -62,7 +61,7 @@ if (isset($_POST['submit'])) {
     }
 
     if (count($error) == 0) {
-        // Update the user's data in the database
+
         $sqlUpdate = "UPDATE `user_register` SET email = '$newEmail', name = '$newFname', number = '$newNumber',sports = '$newSports',position = '$newPosition' WHERE id = $userId";
 
         $resultUpdate = mysqli_query($con, $sqlUpdate);
@@ -85,8 +84,8 @@ if (isset($_POST['submit'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="images/new_logo.png">
-    <link rel="stylesheet" href="new.css">
+    <link rel="icon" type="image/png" href="../../images/new_logo.png">
+    <link rel="stylesheet" href="../../css/userCss/userUpdateProfile.css">
     <title>UPDATE PROFILE:</title>
 </head>
 

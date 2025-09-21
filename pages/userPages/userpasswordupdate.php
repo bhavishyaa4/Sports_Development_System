@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'connect.php';
+include '../../connect.php';
 
 if (!isset($_SESSION['userId'])) {
     header("Location: login.php");
@@ -58,8 +58,8 @@ if (isset($_POST['submit'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="images/new_logo.png">
-    <link rel="stylesheet" href="userpasswordupdate.css">
+    <link rel="icon" type="image/png" href="../../images/new_logo.png">
+    <link rel="stylesheet" href="../../css/userCss/userpasswordupdate.css">
     <title>CHANGE PASSWORD:</title>
 </head>
 

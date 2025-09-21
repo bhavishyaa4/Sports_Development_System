@@ -1,18 +1,15 @@
 <?php
 session_start();
 if (!isset($_SESSION['userId'])) {
-    header('location: ./login.php?err=1');
+    header('location: ../.././login.php?err=1');
 }
 ?>
 <?php
-include 'connect.php';
+include '../../connect.php';
 
 $userId = $_SESSION['userId'];
-// if (isset($_GET['id'])) {
-//     $id = $_GET['id'];
-// }
 
-$position = ''; // Initialize $position variable
+$position = '';
 
 if (isset($_POST['submit'])) {
     $sport = $_POST['sport'];
@@ -53,32 +50,14 @@ if (isset($_POST['submit'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="images/new_logo.png">
-    <link rel="stylesheet" href="apply.css">
+    <link rel="icon" type="image/png" href="../../images/new_logo.png">
+    <link rel="stylesheet" href="../../css/userCss/apply.css">
     <title>Apply Form:</title>
 </head>
 
 <body>
     <div class="container">
-        <div class="header">
-            <div id="logo">SportsZen</div>
-            <div id="navbar">
-                <ul>
-                    <li><a href="dex.php">Home</a></li>
-                    <li><a href="sa.php">Sports Academy</a></li>
-                    <li><a href="apply.php">Apply</a></li>
-                    <li><a href="allaboutus.php">About Us</a></li>
-                </ul>
-            </div>
-            <div class="dropdown">
-                <button class="logout">Logout/Change Password</button>
-                <div class="dropdown-content">
-                    <a href="userlogout.php">Logut</a>
-                    <a href="userpasswordupdate.php">Change Password</a>
-                    <a href="updateprofile.php">Update Profile</a>
-                </div>
-            </div>
-        </div>
+        <?php include __DIR__ . "../../../includes/userHeader.php" ?>
     </div>
     <div class="first">
         <div class="second">

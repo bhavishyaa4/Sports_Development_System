@@ -10,7 +10,7 @@
 
 <body>
     <div class="container">
-        <?php include __DIR__ . "../../../includes/openHeader.php"; ?>
+        <?php include __DIR__ . "../../../includes/sportsHeader.php"; ?>
         <div class="main">
             <div class="sport">
                 <img src="../../images/basketball2.jpg" alt="football">
