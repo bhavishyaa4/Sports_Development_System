@@ -66,7 +66,7 @@ $con->close();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="../../images/new_logo.png">
     <link rel="stylesheet" href="../../css/adminCss/addAcademy.css">
-    <title>ADD SPORTS ACADEMY</title>
+    <title>Admin | Add Academy</title>
     <script>
         function validateForm() {
             var name = document.getElementById("name").value;

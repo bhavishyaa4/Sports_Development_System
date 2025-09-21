@@ -14,7 +14,7 @@ if (!isset($_SESSION['admin_id'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../css/adminCss/adminHome.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <title>ADMIN HOME PAGE</title>
+    <title>Admin | Home</title>
 </head>
 
 <body>

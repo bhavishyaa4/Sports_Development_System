@@ -21,7 +21,7 @@ $result = mysqli_query($con, $select);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="../../images/new_logo.png">
     <link rel="stylesheet" href="../../css/adminCss/deleteSport.css">
-    <title>SPORTS ACADEMY</title>
+    <title>Admin | Delete Sport</title>
 </head>
 
 <body>

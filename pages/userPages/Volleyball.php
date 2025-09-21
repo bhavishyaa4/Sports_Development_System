@@ -6,7 +6,7 @@
     <link rel="icon" type="image/png" href="../../images/new_logo.png">
     <link rel="stylesheet" href="../../css/userCss/sport.css">
 
-    <title>Volleyball</title>
+    <title>User | Volleyball</title>
 </head>
 
 <body>

@@ -58,9 +58,9 @@ if (isset($_POST['savebtn'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="images/new_logo.png">
-    <title>Admin Update Page:</title>
-    <link rel="stylesheet" href="ureg.css">
+    <link rel="icon" type="image/png" href="../../images/new_logo.png">
+    <title>Admin | User Update</title>
+    <link rel="stylesheet" href="../../css/userCss/register.css">
 </head>
 
 <body>

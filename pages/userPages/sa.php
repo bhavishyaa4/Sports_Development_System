@@ -20,70 +20,8 @@ $result = mysqli_query($con, $select);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="../../images/new_logo.png">
-    <title>SPORTS ACADEMY</title>
-    <style>
-        .container {
-            background: linear-gradient(to right, white, #caddeb);
-        }
-
-        h1 {
-            margin-top: 20px;
-            margin-bottom: 50px;
-            text-align: center;
-        }
-
-        .show {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr 1fr;
-            font-size: 30px;
-        }
-
-        .img {
-            margin-right: 10%;
-            margin-left: -58%;
-            margin-bottom: 10%;
-            margin-top: 10%;
-        }
-
-        .sports {
-            width: 70%;
-            display: grid;
-            margin: auto;
-            padding: 30px;
-            border: 2px solid black;
-            border-radius: 30px;
-            grid-template-columns: 1fr 1fr;
-            grid-template-rows: 1fr 1fr 1fr;
-            column-gap: 20px;
-            row-gap: 60px;
-
-        }
-
-        .each-sport {
-            display: flex;
-            column-gap: 30px;
-        }
-
-        .name h1 {
-            text-align: left;
-            margin: 0;
-            margin-bottom: 15px;
-        }
-
-        .name button {
-            font-size: 15px;
-            padding: 5px 10px;
-            margin-top: 15px;
-            background: none;
-            border-radius: 5% 20% 5% 20%;
-            cursor: pointer;
-        }
-
-        .name button a {
-            color: black;
-            text-decoration: none;
-        }
-    </style>
+    <link rel="stylesheet" href="../../css/userCss/userViewsa.css">
+    <title>User | Sports View</title>
 </head>
 
 <body>

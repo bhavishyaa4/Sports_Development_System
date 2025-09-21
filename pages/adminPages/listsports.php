@@ -45,21 +45,17 @@ if (isset($_POST['updatebtn'])) {
     }
 }
 
-// Check if academy is added from another page
 if (isset($_SESSION['added_academy'])) {
     $addedAcademy = $_SESSION['added_academy'];
     unset($_SESSION['added_academy']);
 
-    // Add the newly added academy to the existing academies list
     $_SESSION['added_academies'][] = $addedAcademy;
 }
 
-// Check if academy is deleted from another page
 if (isset($_SESSION['deleted_academy'])) {
     $deletedAcademy = $_SESSION['deleted_academy'];
     unset($_SESSION['deleted_academy']);
 
-    // Remove the deleted academy from the existing academies list
     if (isset($_SESSION['added_academies'])) {
         foreach ($_SESSION['added_academies'] as $key => $academy) {
             if ($academy['name'] === $deletedAcademy) {
@@ -77,215 +73,14 @@ if (isset($_SESSION['deleted_academy'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="images/new_logo.png">
-    <title>LIST SPORTS:</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-        }
-
-        /* body{
-            display:flex;
-            flex-direction:column;
-            justify-content: center;
-            align-items: center;
-        } */
-        .header {
-            width: 100%;
-            height: 90px;
-            background-color: grey;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        ul {
-            display: flex;
-        }
-
-        li {
-            margin-left: 20px;
-            list-style: none;
-        }
-
-        li a {
-            text-decoration: none;
-            color: black;
-        }
-
-        .header #logo {
-            top: 20px;
-            font-size: 30px;
-            z-index: 997;
-            font-weight: bold;
-            color: yellow;
-            margin-left: 20px;
-        }
-
-        .logout {
-            margin-right: 20px;
-        }
-
-        .logout {
-            height: 50px;
-            width: 120px;
-            top: 20px;
-            right: 3%;
-            display: grid;
-            place-items: center;
-            background: lime;
-            border-radius: 1px 30px;
-            font-weight: bold;
-        }
-
-        .logout:hover {
-            background-color: orangered;
-        }
-
-        .logout a {
-            color: black;
-        }
-
-        #navbar ul :not(:last-child) a:hover,
-        #navbar ul :not(:last-child) a:focus {
-            border-bottom: 2px solid white;
-            border-radius: 1px 11px;
-        }
-
-        #navbar ul li {
-            font-size: 22px;
-            font-weight: bold;
-            margin: 0 40px;
-        }
-
-        #navbar ul li a {
-            text-decoration: none;
-            color: purple;
-        }
-
-        #navbar ul li a:hover {
-            color: blue;
-        }
-
-        /* .w{
-    color:white;
-    background-color:red;
-    font-size:17px;
-    margin-bottom: 4%;
-    font-family:Georgia, 'Times New Roman', Times, serif;
-}
-.err_msg{
-    color:red;
-    font-size: 25px;
-    font-family:Georgia, 'Times New Roman', Times, serif;
-}
-.sucess_msg{
-    background-color:green;
-    color:white;
-    margin-bottom:10px;
-    font-size: 17px;
-    font-family:Georgia, 'Times New Roman', Times, serif;
-}
-.error_msg{
-    background-color:red;
-    color:white;
-    margin-bottom:10px;
-    font-size: 17px;
-    font-family:Georgia, 'Times New Roman', Times, serif;
-} */
-        .show {
-            margin-top: 4%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-
-        }
-
-        .start {
-            height: 30px;
-            width: 120px;
-            right: 3%;
-            display: grid;
-            place-items: center;
-            background: transparent;
-            border-radius: 0px;
-            font-weight: bold;
-            margin-bottom: 1.5%;
-        }
-
-        .start:hover {
-            background-color: orangered;
-        }
-
-        .start a {
-            color: black;
-            text-decoration: none;
-        }
-
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            border-width: bold;
-            border-style: solid;
-            background-color: grey;
-            width: 120px;
-            z-index: 1;
-        }
-
-        .dropdown-content a {
-            color: purple;
-            font-weight: bold;
-            font-size: large;
-            padding: 20px 5px;
-            text-decoration: none;
-            display: block;
-        }
-
-        .dropdown-content a:hover {
-            text-decoration: underline;
-        }
-
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-    </style>
+    <link rel="icon" type="image/png" href="../../images/new_logo.png">
+    <link rel="stylesheet" href="../../css/adminCss/sportsUpdateView.css">
+    <title>Admin | Sports Management</title>
 </head>
 
 <body>
     <div class="container">
-        <div class="header">
-            <div id="logo">SportsZen</div>
-            <div id="navbar">
-                <ul>
-                    <li><a href="userhome.php">Home</a></li>
-                    <li><a href="addsports.php">Add Sports Academy</a></li>
-                    <li><a href="listsports.php">List Sports Academy</a></li>
-                    <li><a href="listuser.php">List Users</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropbtn">Sports</a>
-                        <div class="dropdown-content">
-                            <a href="createsports.php">Add New Sport</a>
-                            <a href="adminSports.php">Delete Sport</a>
-                        </div>
-                    <li><a href="addadmin.php">Add Admin</a></li>
-                </ul>
-            </div>
-            <div class="dropdown">
-                <button class="logout">Logout/Change Password</button>
-                <div class="dropdown-content">
-                    <a href="logout.php">Logut</a>
-                    <a href="adminpasswordupdate.php">Change Password</a>
-                    <a href="updateadminprofile.php">Update Profile</a>
-                </div>
-            </div>
-        </div>
+        <?php require __DIR__  . "../../../includes/adminHeader.php" ?>
         <div class="show">
             <button class="start"><a href="addsports.php">ADD ACADEMY</a></button>
             <table border="1s">
@@ -340,7 +135,6 @@ if (isset($_SESSION['deleted_academy'])) {
         <script>
             function confirmDelete(id) {
                 if (confirm('Are you sure you want to delete this academy?')) {
-                    // Redirect to delete page or perform delete operation here
                     window.location.href = './listdelete.php?deleteid=' + id;
                 }
             }

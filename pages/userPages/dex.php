@@ -17,7 +17,7 @@ include '../../connect.php';
     <link rel="icon" type="image/png" href="../../images/new_logo.png">
     <link rel="stylesheet" href="../../css/userCss/dex.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <title>HOME PAGE</title>
+    <title>User | Home</title>
 </head>
 
 <body>

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="../../images/new_logo.png">
     <link rel="stylesheet" href="../../css/userCss/about.css">
-    <title>About Sports Development System</title>
+    <title>OpenUser | About - Us</title>
 </head>
 
 <body>

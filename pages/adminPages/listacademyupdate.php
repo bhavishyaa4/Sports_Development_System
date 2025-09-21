@@ -48,6 +48,7 @@ if (isset($_POST['submit'])) {
     <meta charset="UTF-8">
     <link rel="icon" type="image/png" href="../../images/new_logo.png">
     <link rel="stylesheet" href="../../css/adminCss/updateAcademy.css">
+    <title>Admin | Update Academy</title>
 </head>
 
 <body>
