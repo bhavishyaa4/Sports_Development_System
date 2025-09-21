@@ -69,7 +69,7 @@ if (isset($_POST['submit'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="images/new_logo.png">
     <title>REGISTER PAGE:</title>
-    <link rel="stylesheet" href="ureg.css">
+    <link rel="stylesheet" href="css/userCss/register.css">
 </head>
 
 <body>
@@ -94,7 +94,7 @@ if (isset($_POST['submit'])) {
                         ?>
                     </p>
                     <label>Password</label>
-                    <input type="password" class="password" id="password" name="password" autocomplete="off" placeholder="****" value="" />
+                    <input type="password" class="password" id="password" name="password" autocomplete="off" value="" />
                     <p class="require">
                         <?php
                         if (isset($error['rpassword'])) {
@@ -125,7 +125,7 @@ if (isset($_POST['submit'])) {
                         ?>
                     </p>
                     <label>C.Password</label>
-                    <input type="password" name="cpass" id="cpass" autocomplete="off" placeholder="***" value="" />
+                    <input type="password" name="cpass" id="cpass" autocomplete="off" value="" />
                     <p class="require">
                         <?php
                         if (isset($error['rcpass'])) {

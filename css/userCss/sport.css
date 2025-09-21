@@ -1,0 +1,74 @@
+.container {
+  background: linear-gradient(to right, white, #caddeb);
+}
+
+.main {
+  width: 100%;
+}
+
+.sport {
+  width: 100%;
+}
+
+.sport img {
+  width: 100%;
+}
+
+.info {
+  text-align: justify;
+  padding: 20px;
+}
+
+.info h1 {
+  font-size: 50px;
+  margin-bottom: 20px;
+}
+
+.info h2 {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.info p {
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+.motive {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+}
+
+.motive img {
+  width: 850px;
+}
+
+.quote {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.quote p {
+  text-transform: uppercase;
+  margin-top: 10px;
+  font-size: 20px;
+}
+
+.motive h1 {
+  text-align: center;
+  font-style: italic;
+}
+
+.emotion {
+  text-align: justify;
+  margin-top: 10px;
+  padding: 20px;
+}
+
+.emotion p {
+  font-size: 30px;
+}

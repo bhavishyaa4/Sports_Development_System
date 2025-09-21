@@ -63,7 +63,7 @@ if (isset($_GET['err']) && $_GET['err'] == 1) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="images/new_logo.png">
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="css/userCss/login.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>HOME PAGE</title>
@@ -71,20 +71,9 @@ if (isset($_GET['err']) && $_GET['err'] == 1) {
 
 <body>
     <div class="container">
-        <div class="header">
-            <div id="logo">SportsZen</div>
-            <div id="navbar">
-                <ul>
-                    <li><a href="index.php">Home</a></li>
-                    <li><a href="viewsa.php">Sports Academy</a></li>
-                    <!-- <li><a href="#">Blog</a></li> -->
-                    <li><a href="aboutus.php">About Us</a></li>
-                </ul>
-            </div>
-            <div class="out">
-                <button class="logout"><a href="login.php">Login/Register</a></button>
-            </div>
-        </div>
+        <?php
+        include __DIR__ . "/includes/openHeader.php";
+        ?>
     </div>
     <div class="first">
         <div class="second">
