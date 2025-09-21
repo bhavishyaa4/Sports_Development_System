@@ -1,34 +1,24 @@
 <?php
 session_start();
 if (!isset($_SESSION['admin_id'])) {
-    header('location:first.php?err=1');
+    header('location: ../../first.php?err=1');
 }
 ?>
 <?php
-include 'connect.php';
+include '../../connect.php';
 ?>
-<?php
-$select = "SELECT * FROM sports";
-$result = mysqli_query($con, $select);
-
-?>
-
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="images/new_logo.png">
-    <title>SPORTS ACADEMY</title>
+    <title>UPDATE AND DELETE SITE:</title>
     <style>
         * {
             margin: 0;
             padding: 0;
-        }
-
-        .container {
-            background: linear-gradient(to right, white, #caddeb);
         }
 
         .header {
@@ -45,7 +35,7 @@ $result = mysqli_query($con, $select);
         }
 
         li {
-            margin-left: auto;
+            margin-left: 20px;
             list-style: none;
         }
 
@@ -55,7 +45,7 @@ $result = mysqli_query($con, $select);
         }
 
         .header #logo {
-            top: 50px;
+            top: 20px;
             font-size: 30px;
             z-index: 997;
             font-weight: bold;
@@ -77,7 +67,6 @@ $result = mysqli_query($con, $select);
             background: lime;
             border-radius: 1px 30px;
             font-weight: bold;
-            cursor: pointer;
         }
 
         .logout:hover {
@@ -109,73 +98,35 @@ $result = mysqli_query($con, $select);
             color: blue;
         }
 
-        h1 {
-            margin-top: 20px;
-            margin-bottom: 50px;
-            text-align: center;
-        }
-
         .show {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr 1fr;
-            font-size: 30px;
-        }
-
-        .img {
-            margin-right: 10%;
-            margin-left: -58%;
-            margin-bottom: 10%;
-            margin-top: 10%;
-        }
-
-        .sports {
-            width: 70%;
-            display: grid;
-            margin: auto;
-            padding: 30px;
-            border: 2px solid black;
-            border-radius: 30px;
-            grid-template-columns: 1fr 1fr;
-            grid-template-rows: 1fr 1fr 1fr;
-            column-gap: 20px;
-            row-gap: 60px;
-
-        }
-
-        .each-sport {
+            margin-top: 4%;
             display: flex;
-            column-gap: 30px;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
         }
 
-        .name h1 {
-            text-align: left;
-            margin: 0;
-            margin-bottom: 15px;
+        .start {
+            font-size: 14px;
+            height: 30px;
+            width: 90px;
+            right: 3%;
+            display: grid;
+            place-items: center;
+            background: transparent;
+            border-radius: 0px;
+            font-weight: bold;
+            margin-bottom: 1.5%;
         }
 
-        .name button {
-            font-size: 15px;
-            padding: 5px 10px;
-            margin-top: 15px;
-            background: none;
-            border-radius: 5% 20% 5% 20%;
-            cursor: pointer;
+        .start:hover {
+            background-color: lime;
         }
 
-        .name button a {
+        .start a {
             color: black;
             text-decoration: none;
-        }
-
-        .image {
-            position: relative;
-        }
-
-        .delete {
-            position: absolute;
-            border-radius: 10px;
-            padding: 5px 8px;
-            border: none;
         }
 
         .dropdown {
@@ -240,27 +191,52 @@ $result = mysqli_query($con, $select);
                 </div>
             </div>
         </div>
-        <div class="box">
-            <h1> BROWSE YOUR SPORT!!!</h1>
-        </div>
-        <div class="sports">
-            <?php
-            while ($row = mysqli_fetch_assoc($result)) {
-                echo "
-                    <div class='each-sport'>
-                        <img class='image' src='" . $row['image'] . "' style='height:180px;border-radius:10px;'>
-                        <button class='delete'><a href='deleteSports.php?id=" . $row['id'] . "'>Delete</a></button>
-                        <div class='name'>
-                            <h1>" . $row['name'] . "</h1>
-                            <h2>Start your journey as a " . $row['name'] . " player</h2>
-                            <form action='' method='post'>
-                            <button><a href='Sport.php?name=" . $row['name'] . "'>Click to see more</a></button>
-                            </form>
-                        </div>
-                    </div>
-                ";
-            }
-            ?>
+        <div class="show">
+            <button type="submit" class="start"><a href="../../ureg.php">Add User</a> </button>
+            <table border="1" cellspacing="0">
+                <thead>
+                    <tr style="font-weight: bold;">
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Gender</th>
+                        <th>Number</th>
+                        <th>Sports</th>
+                        <th>Position</th>
+                        <th>Operations</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    $sql = "SELECT * FROM `user_register`";
+                    $result1 = mysqli_query($con, $sql);
+                    if ($result1) {
+                        while ($row = mysqli_fetch_assoc($result1)) {
+                            $id = $row['id'];
+                            $uname = $row['name'];
+                            $email = $row['email'];
+                            $gender = $row['gender'];
+                            $mobile = $row['number'];
+                            $sports = $row['sports'];
+                            $position = $row['position'];
+                            echo '
+                <tr>
+                <td>' . $id . '</td>
+                <td>' . $uname . '</td>
+                <td>' . $email . '</td>
+                <td>' . $gender . '</td>
+                <td>' . $mobile . '</td>
+                <td>' . $sports . '</td>
+                <td>' . $position . '</td>
+                <td>
+                <button class="update"><a href ="listuserupdate.php?updateid=' . $id . '">Update</a></button>
+                <button class="delete"><a href ="listuserdelete.php?deleteid=' . $id . '">Delete</a></button>
+                </td>
+            </tr>';
+                        }
+                    } ?>
+                </tbody>
+            </table>
         </div>
 </body>
 

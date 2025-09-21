@@ -1,9 +1,9 @@
 <?php
 session_start();
-include 'connect.php';
+include '../../connect.php';
 
 if (!isset($_SESSION['admin_id'])) {
-    header("Location: login.php");
+    header('location: ../../first.php?err=1');
     exit();
 }
 
@@ -36,7 +36,6 @@ if (isset($_POST['submit'])) {
     }
 
     if (count($error) == 0) {
-        // Use md5() function to hash the password
         $hashedPassword = md5($password);
         $sql = "UPDATE `admins` SET password = '$hashedPassword' WHERE id = $adminId";
 
@@ -60,8 +59,8 @@ if (isset($_POST['submit'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="images/new_logo.png">
-    <link rel="stylesheet" href="userpasswordupdate.css">
+    <link rel="icon" type="image/png" href="../../images/new_logo.png">
+    <link rel="stylesheet" href="../../css/userCss/userpasswordupdate.css">
     <title>CHANGE PASSWORD:</title>
 </head>
 

@@ -1,5 +1,5 @@
 <?php
-include 'connect.php';
+include '../../connect.php';
 if(isset($_GET['deleteid'])){
     $id = $_GET['deleteid'];
     $sql = "DELETE FROM `academy` where id=$id";

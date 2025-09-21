@@ -1,0 +1,117 @@
+.info {
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+  margin-top: 15px;
+}
+
+label {
+  font-size: 20px;
+  color: black;
+  font-weight: lighter;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+.info input[type="text"],
+.info input[type="password"] {
+  margin-top: 10px;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid grey;
+  border-radius: 5px;
+  box-shadow: none;
+  font-size: 14px;
+  color: black;
+  margin-bottom: 20px;
+}
+
+.rem {
+  margin-top: 5%;
+  margin-bottom: 5%;
+  color: black;
+  font-size: 20px;
+}
+
+.info input[type="radio"] {
+  width: 10%;
+}
+
+.info input[type="submit"] {
+  width: 50%;
+  margin-left: 25%;
+  color: rgba(2, 82, 255, 0.925);
+  padding: 10px 20px;
+  border: solid;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.w {
+  color: white;
+  background-color: red;
+  font-size: 17px;
+  margin-bottom: 4%;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+.err_msg {
+  color: red;
+  font-size: 25px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+.sucess_msg {
+  background-color: green;
+  color: white;
+  margin-bottom: 10px;
+  font-size: 17px;
+}
+
+.error_msg {
+  background-color: red;
+  color: white;
+  margin-bottom: 10px;
+  font-size: 17px;
+}
+
+.first {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+}
+
+.second {
+  width: 400px;
+  background: transparent;
+  border: 3px solid black;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 0 15px black;
+  color: whitesmoke;
+  border-radius: 11px;
+  padding: 17px 25px;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 50px;
+}
+
+.footer {
+  margin-left: 165px;
+  font-size: 16px;
+  border-radius: 10px 0 10px 0;
+  margin-bottom: 4px;
+  width: 60px;
+  height: 30px;
+  place-items: center;
+  background-color: lime;
+  cursor: pointer;
+}
+
+.footer:hover {
+  background-color: blue;
+}

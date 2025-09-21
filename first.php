@@ -1,10 +1,10 @@
 <?php
-if (isset($_COOKIE['admin_id'])) {
+if (!isset($_COOKIE['admin_id'])) {
     session_start();
     $_SESSION['admin_id'] = $_COOKIE['admin_id'];
     $_SESSION['admin_email'] = $_COOKIE['admin_email'];
     $_SESSION['admin_name'] = $_COOKIE['admin_name'];
-    header('location:./userhome.php');
+    header('location:../../first.php');
 }
 if (isset($_POST['btn'])) {
     $err = [];
@@ -39,7 +39,7 @@ if (isset($_POST['btn'])) {
                 setcookie('admin_email', $row['email'], time() + 10 * 24 * 60 * 60);
                 setcookie('admin_name', $row['name'], time() + 10 * 24 * 60 * 60);
             }
-            header('location:./userhome.php');
+            header('location: pages/adminPages/userhome.php');
         } else {
             $msg = 'RECORD NOT FOUND!';
         }
@@ -54,7 +54,7 @@ if (isset($_POST['btn'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="images/new_logo.png">
-    <link rel="stylesheet" href="first.css">
+    <link rel="stylesheet" href="css/adminCss/first.css">
     <title>ADMIN LOGIN PAGE</title>
 </head>
 
@@ -72,7 +72,7 @@ if (isset($_POST['btn'])) {
                     <p class="err_msg">LOG-IN TO CONTINUE...</p>
                 <?php } ?>
                 <label>Email</label>
-                <input type="text" name="email" id="email" autocomplete="off" value="<?php echo isset($email) ? $email : '' ?>" />
+                <input type="text" name="email" id="email" autocomplete="off" placeholder="Email" value="<?php echo isset($email) ? $email : '' ?>" />
                 <?php
                 if (isset($err['email'])) { ?>
                     <span class="w">
@@ -83,7 +83,7 @@ if (isset($_POST['btn'])) {
                 <?php }
                 ?>
                 <label>Password</label>
-                <input type="password" name="pass" id="pass" placeholder="***" value="<?php echo isset($password) ? $password : '' ?>" />
+                <input type="password" name="pass" id="pass" placeholder="Password" value="<?php echo isset($password) ? $password : '' ?>" />
                 <?php
                 if (isset($err['pass'])) { ?>
                     <span class="w">
@@ -97,7 +97,6 @@ if (isset($_POST['btn'])) {
                     <input type="checkbox" name="remember" id="remember" value="remember" />
                     Remember Me
                 </div>
-                <!-- <p style="color:white;">Don't have an account??<a href="./userhome.php">Click here to register!!</a></p> -->
                 <input type="submit" name="btn" value="SIGN-UP" />
             </div>
         </form>

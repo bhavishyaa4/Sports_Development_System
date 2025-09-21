@@ -1,13 +1,12 @@
 <?php
 session_start();
 if (!isset($_SESSION['admin_id'])) {
-    header('location:first.php?err=1');
+    header('location:../../first.php?err=1');
 }
 ?>
 <?php
-require_once 'connect.php';
+require_once '../../connect.php';
 
-// Check if update form is submitted
 if (isset($_POST['updatebtn'])) {
     $update_id = $_POST['update_id'];
 

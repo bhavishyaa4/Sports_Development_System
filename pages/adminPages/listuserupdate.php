@@ -1,5 +1,11 @@
 <?php
-include 'connect.php';
+session_start();
+if (!isset($_SESSION['admin_id'])) {
+    header('location: ../../first.php?err=1');
+}
+?>
+<?php
+include '../../connect.php';
 $id = $_GET['updateid'];
 $sql = "SELECT * FROM `user_register` WHERE id = $id";
 $result2 = mysqli_query($con, $sql);

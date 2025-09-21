@@ -1,9 +1,9 @@
 <?php
 session_start();
-include 'connect.php';
+include '../../connect.php';
 
 if (!isset($_SESSION['admin_id'])) {
-    header("Location: first.php");
+    header('location: ../../first.php?err=1');
     exit();
 }
 $adminId = $_SESSION['admin_id'];
@@ -27,7 +27,6 @@ if (isset($_POST['submit'])) {
     $newRole = $_POST['role'];
     $error = array();
 
-    // Check if the provided email already exists for another user
     $sqlCheckEmail = "SELECT * FROM `admins` WHERE email = '$newEmail' AND id != $adminId";
     $resultCheckEmail = mysqli_query($con, $sqlCheckEmail);
 
@@ -50,7 +49,7 @@ if (isset($_POST['submit'])) {
     }
 
     if (count($error) == 0) {
-        // Update the user's data in the database
+
         $sqlUpdate = "UPDATE `admins` SET email = '$newEmail', name = '$newFname',role = '$newRole' WHERE id = $adminId";
 
         $resultUpdate = mysqli_query($con, $sqlUpdate);
@@ -73,8 +72,8 @@ if (isset($_POST['submit'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="images/new_logo.png">
-    <link rel="stylesheet" href="new.css">
+    <link rel="icon" type="image/png" href="../../images/new_logo.png">
+    <link rel="stylesheet" href="../../css/userCss/userUpdateProfile.css">
     <title>UPDATE PROFILE:</title>
 </head>
 
