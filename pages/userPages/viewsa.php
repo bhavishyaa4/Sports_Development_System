@@ -31,7 +31,7 @@ $result = mysqli_query($con, $select);
             while ($row = mysqli_fetch_assoc($result)) {
                 echo "
                     <div class='each-sport'>
-                        <img src='/project_i/" . $row['image'] . "' style='height:180px;border-radius:10px;'>
+                        <img src='/project_i/" . $row['image'] . "' style='height:180px;width:240px;border-radius:10px;'>
                         <div class='name'>
                             <h1>" . $row['name'] . "</h1>
                             <h2>Start your journey as a " . $row['name'] . " player</h2>
