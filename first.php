@@ -59,50 +59,34 @@ if (isset($_POST['btn'])) {
 </head>
 
 <body>
+    <h1>WELCOME</h1>
+    <h2>ADMIN USER</h2>
 
-    <body>
-        <h1>WELCOME</h1>
-        <h2>ADMIN USER</h2>
-        <form action="" method="post" id="form" name="form">
-            <div class="info">
-                <?php if (isset($msg)) { ?>
-                    <p class="err_msg"><?php echo $msg; ?></p>
-                <?php } ?>
-                <?php if (isset($_GET['err']) && $_GET['err'] == 1) { ?>
-                    <p class="err_msg">LOG-IN TO CONTINUE...</p>
-                <?php } ?>
-                <label>Email</label>
-                <input type="text" name="email" id="email" autocomplete="off" placeholder="Email" value="<?php echo isset($email) ? $email : '' ?>" />
-                <?php
-                if (isset($err['email'])) { ?>
-                    <span class="w">
-                        <?php
-                        echo $err['email']
-                        ?>
-                    </span>
-                <?php }
-                ?>
-                <label>Password</label>
-                <input type="password" name="pass" id="pass" placeholder="Password" value="<?php echo isset($password) ? $password : '' ?>" />
-                <?php
-                if (isset($err['pass'])) { ?>
-                    <span class="w">
-                        <?php
-                        echo $err['pass']
-                        ?>
-                    </span>
-                <?php }
-                ?>
-                <div class="rem">
-                    <input type="checkbox" name="remember" id="remember" value="remember" />
-                    Remember Me
-                </div>
-                <input type="submit" name="btn" value="SIGN-UP" />
+    <form action="" method="post" id="form" name="form">
+        <div class="info">
+            <?php if (isset($msg)) { ?>
+                <p class="err_msg"><?php echo $msg; ?></p>
+            <?php } ?>
+            <?php if (isset($_GET['err']) && $_GET['err'] == 1) { ?>
+                <p class="err_msg">LOG-IN TO CONTINUE...</p>
+            <?php } ?>
+            <label>Email</label>
+            <input type="text" name="email" id="email" autocomplete="off" placeholder="Email" value="<?php echo isset($email) ? $email : '' ?>" />
+            <?php if (isset($err['email'])) { ?>
+                <span class="w"><?php echo $err['email'] ?></span>
+            <?php } ?>
+            <label>Password</label>
+            <input type="password" name="pass" id="pass" placeholder="Password" value="<?php echo isset($password) ? $password : '' ?>" />
+            <?php if (isset($err['pass'])) { ?>
+                <span class="w"><?php echo $err['pass'] ?></span>
+            <?php } ?>
+            <div class="rem">
+                <input type="checkbox" name="remember" id="remember" value="remember" />
+                Remember Me
             </div>
-        </form>
-    </body>
-
-</html>
+            <input type="submit" name="btn" value="SIGN-UP" />
+        </div>
+    </form>
 </body>
 
 </html>

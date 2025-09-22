@@ -58,6 +58,7 @@
   font-weight: bold;
   color: black;
   cursor: pointer;
+  max-width: 400px;
 }
 
 .logout-link:hover {
@@ -82,10 +83,14 @@
   display: block;
   text-decoration: none;
   color: white;
+  margin-left: auto;
+  margin-right: auto;
+  width: 400px;
 }
 
 .dropdown-menu a:hover {
   background-color: orangered;
+  width: 400px;
 }
 
 .dropdown.active .dropdown-menu {
