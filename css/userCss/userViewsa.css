@@ -64,6 +64,30 @@ h1 {
 .btn:hover {
   background-color: #45a049;
 }
+
+.each-sport form button {
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #9b59b6, #8e44ad);
+  cursor: pointer;
+  transition: 0.3s;
+  font-weight: bold;
+  text-align: center;
+}
+
+.each-sport form button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(135deg, #8e44ad, #7d3c98);
+}
+
+.each-sport form button a {
+  color: white;
+  text-decoration: none;
+  display: block;
+}
+
 @media (width: 912px) {
   .each-sport {
     flex-direction: column;
@@ -94,6 +118,10 @@ h1 {
   .sport-img {
     height: 150px;
   }
+  .each-sport form button {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
 }
 
 @media (max-width: 600px) {
@@ -119,5 +147,9 @@ h1 {
 
   .sport-img {
     height: 100px;
+  }
+  .each-sport form button {
+    padding: 6px 12px;
+    font-size: 0.85rem;
   }
 }
