@@ -11,14 +11,12 @@
 
 <body>
     <div class="container">
-        <div class="header">
-            <?php
-            include __DIR__ . "/../../includes/openHeader.php";
-            ?>
-        </div>
-        <header>
+        <?php
+        include __DIR__ . "/../../includes/openHeader.php";
+        ?>
+        <div class="page-header">
             <h1>Sports Development System</h1>
-        </header>
+        </div>
 
         <section>
             <h2>About Us</h2>

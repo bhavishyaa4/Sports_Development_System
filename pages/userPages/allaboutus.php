@@ -18,9 +18,9 @@ if (!isset($_SESSION['userId'])) {
 <body>
     <div class="container">
         <?php include __DIR__ . "../../../includes/userHeader.php" ?>
-        <header>
+        <div class="page-header">
             <h1>Sports Development System</h1>
-        </header>
+        </div>
 
         <section>
             <h2>About Us</h2>

@@ -3,82 +3,6 @@
   padding: 0;
   box-sizing: border-box;
 }
-
-.header {
-  width: 100%;
-  height: 90px;
-  background-color: grey;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-ul {
-  display: flex;
-}
-li {
-  margin-left: 20px;
-  list-style: none;
-}
-li a {
-  text-decoration: none;
-  color: black;
-}
-.header #logo {
-  font-size: 30px;
-  font-weight: bold;
-  color: yellow;
-  margin-left: 20px;
-}
-.logout {
-  margin-right: 20px;
-  height: 50px;
-  width: 120px;
-  display: grid;
-  place-items: center;
-  background: lime;
-  border-radius: 1px 30px;
-  font-weight: bold;
-}
-.logout:hover {
-  background-color: orangered;
-}
-.logout a {
-  color: black;
-}
-#navbar ul li {
-  font-size: 22px;
-  font-weight: bold;
-  margin: 0 40px;
-}
-#navbar ul li a:hover {
-  color: blue;
-}
-
-.icon {
-  position: fixed;
-  top: 25%;
-  height: 400px;
-  width: 50px;
-  right: 0;
-  background-color: grey;
-  border-radius: 60px 0 0 60px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  flex-direction: column;
-  z-index: 1000;
-}
-.icon:hover {
-  background-color: black;
-}
-.icon a {
-  color: yellow;
-  font-size: 1.5rem;
-}
-.icon a:hover {
-  color: red;
-}
-
 .first {
   display: flex;
   justify-content: center;
@@ -98,7 +22,7 @@ li a {
   box-shadow: 0 0 15px lightgreen;
   color: whitesmoke;
   border-radius: 11px;
-  padding: 30px 40px 0px 0px;
+  padding: 30px;
 }
 
 h2 {
@@ -227,7 +151,7 @@ h2:hover {
     font-size: 28px;
   }
   .input input {
-    height: 38px;
+    height: 52px;
     font-size: 13px;
     padding: 12px 35px 12px 12px;
   }

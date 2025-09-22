@@ -3,127 +3,69 @@
   padding: 0;
   box-sizing: border-box;
 }
-/* .container{
-    background: linear-gradient(to right, white,#caddeb);
-} */
-.header {
-  width: 100%;
-  height: 90px;
-  background-color: grey;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-ul {
-  display: flex;
-}
-li {
-  margin-left: 20px;
-  list-style: none;
-}
-li a {
-  text-decoration: none;
-  color: black;
-}
 
-.header #logo {
-  top: 20px;
-  font-size: 30px;
-  z-index: 997;
-  font-weight: bold;
-  color: yellow;
-  margin-left: 20px;
-}
-.logout {
-  margin-right: 20px;
-}
-.logout {
-  height: 50px;
-  width: 120px;
-  top: 20px;
-  right: 3%;
-  display: grid;
-  place-items: center;
-  background: lime;
-  border-radius: 1px 30px;
-  font-weight: bold;
-}
-.logout:hover {
-  background-color: orangered;
-}
-.logout a {
-  color: black;
-}
-#navbar ul :not(:last-child) a:hover,
-#navbar ul :not(:last-child) a:focus {
-  border-bottom: 2px solid white;
-  border-radius: 1px 11px;
-}
-#navbar ul li {
-  font-size: 22px;
-  font-weight: bold;
-  margin: 0 40px;
-}
-#navbar ul li a {
-  text-decoration: none;
-  color: purple;
-}
-#navbar ul li a:hover {
-  color: blue;
-}
 .first {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 90vh;
-  background: url(../../images/apply_auto_x2_auto_x2.jpg) no-repeat;
-  background-size: cover;
-  background-position: center;
+  height: 93vh;
+  background: url(../../images/form_background.jpg) no-repeat center
+    center/cover;
+  padding: 20px;
 }
 
 .second {
-  padding: 20px;
+  padding: 30px 40px;
   border: 3px solid grey;
-  background: transparent;
-  backdrop-filter: blur(20px);
-  box-shadow: 0 0 15px orangered;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 15px white;
   color: grey;
   border-radius: 11px;
-  padding: 30px 40px;
+  width: 100%;
+  max-width: 500px;
 }
 
 h2 {
   text-align: center;
   color: orangered;
-  font-size: xxx-large;
-  margin-bottom: 5%;
+  font-size: 2rem;
+  margin-bottom: 20px;
 }
 
 .input {
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 label {
   display: block;
   font-weight: bold;
-  font-size: larger;
-  margin-bottom: 15px;
+  font-size: 1.1rem;
+  margin-bottom: 8px;
   color: whitesmoke;
 }
 
 select,
 input[type="submit"] {
   width: 100%;
-  padding: 8px;
+  padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  font-size: 16px;
+  font-size: 1rem;
   background: transparent;
   color: orangered;
+  transition: 0.3s;
 }
+
+.select:focus,
+input[type="submit"]:focus {
+  outline: none;
+  border-color: white;
+}
+
 .error {
   color: red;
-  font-size: 14px;
+  font-size: 0.9rem;
 }
 
 .submit {
@@ -131,35 +73,99 @@ input[type="submit"] {
   color: whitesmoke;
   cursor: pointer;
   margin: 20px 0 15px;
+  padding: 10px;
+  border: 1px solid whitesmoke;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: 0.3s;
 }
 
 .submit:hover {
   background-color: blue;
+  color: whitesmoke;
 }
-.dropdown {
-  position: relative;
-  display: inline-block;
+
+@media (max-width: 992px) {
+  .first {
+    min-height: 100vh;
+  }
+  h2 {
+    font-size: 1.8rem;
+  }
+
+  select,
+  input[type="submit"] {
+    font-size: 0.95rem;
+    padding: 8px;
+  }
+
+  .submit {
+    font-size: 0.95rem;
+    padding: 8px;
+  }
 }
-.dropdown-content {
-  display: none;
-  position: absolute;
-  border-width: bold;
-  background-color: transparent;
-  width: 120px;
-  border-radius: 20px 1px;
-  z-index: 1;
+
+@media (max-width: 768px) {
+  .first {
+    height: auto;
+    padding: 20px 10px;
+  }
+
+  .second {
+    padding: 20px;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  label {
+    font-size: 1rem;
+  }
+  select,
+  input[type="submit"] {
+    font-size: 0.9rem;
+    padding: 6px;
+  }
+
+  .submit {
+    font-size: 0.95rem;
+    padding: 8px;
+  }
 }
-.dropdown-content a {
-  color: purple;
-  font-weight: bold;
-  font-size: large;
-  padding: 20px 5px;
-  text-decoration: none;
-  display: block;
-}
-.dropdown-content a:hover {
-  text-decoration: underline;
-}
-.dropdown:hover .dropdown-content {
-  display: block;
+
+@media (max-width: 480px) {
+  .first {
+    min-height: 90vh;
+  }
+  .second {
+    padding: 15px;
+    border-width: 2px;
+    border-radius: 8px;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+  }
+
+  label {
+    font-size: 0.95rem;
+  }
+
+  select,
+  input[type="submit"] {
+    font-size: 0.9rem;
+    padding: 14px;
+  }
+
+  .submit {
+    font-size: 0.9rem;
+    padding: 6px;
+  }
+
+  .options {
+    width: -100px;
+  }
 }

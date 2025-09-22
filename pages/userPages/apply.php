@@ -106,9 +106,9 @@ if (isset($_POST['submit'])) {
                 <div class="input">
                     <label>Position:</label>
                     <select id="position" name="position" class="position">
-                        <option value="coach" <?php if ($position === 'coach') echo 'selected'; ?>>Coach</option>
-                        <option value="player" <?php if ($position === 'player') echo 'selected'; ?>>Player</option>
-                        <option value="volunteer" <?php if ($position === 'volunteer') echo 'selected'; ?>>Volunteer</option>
+                        <option name="options" value="coach" <?php if ($position === 'coach') echo 'selected'; ?>>Coach</option>
+                        <option name="options" value="player" <?php if ($position === 'player') echo 'selected'; ?>>Player</option>
+                        <option name="options" value="volunteer" <?php if ($position === 'volunteer') echo 'selected'; ?>>Volunteer</option>
                     </select>
                     <p class="require">
                         <?php

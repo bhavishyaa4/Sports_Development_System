@@ -1,108 +1,169 @@
-body {
+* {
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
-  background-image: url("../../images/rega.webp");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  font-family: "Times New Roman", Times, serif;
+  box-sizing: border-box;
+}
+
+body {
+  background: url("../../images/rega.webp") no-repeat center center/cover;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 70vh;
+  padding: 20px;
+}
+
+.f-body {
+  width: 100%;
+  max-width: 900px;
 }
 
 h1 {
   text-align: center;
-  font-size: 45px;
-  margin: 30px 0;
-  color: gray;
-}
-
-.info {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 10px;
-  height: 500px;
-  margin: 0 auto;
-  padding: 10px;
-  border-radius: 4px;
-}
-
-.info h2,
-.info h3 {
-  text-align: left;
-  font-size: larger;
-}
-.first {
-  padding: 15px;
-  border-radius: 5px;
-}
-.second,
-.third {
-  padding: 0px;
-  margin-right: 45px;
-}
-
-.second label,
-.third label {
-  display: grid;
-  margin-bottom: 12px;
-  font-weight: bold;
+  font-size: 40px;
+  margin-bottom: 25px;
   color: white;
 }
 
-.second input[type="text"],
-.second input[type="password"],
-.second select,
-.third input[type="text"],
-.third input[type="password"] {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid grey;
-  border-radius: 5px;
-  box-shadow: none;
-  font-size: 14px;
-  color: black;
-  margin-bottom: 10px;
-}
-.second input[type="file"] {
-  width: 100%;
-  padding: 0px;
-  margin-bottom: 5%;
-}
-.num {
-  margin-bottom: 5%;
-  margin-top: 2%;
-}
-.footer {
-  position: absolute;
-  left: 46%;
-  bottom: 140px;
-  background-color: transparent;
-  color: white;
-  padding: 10px 20px;
-  border: solid;
-  border-radius: 5px;
-  font-weight: bold;
-  font-size: 16px;
-  cursor: pointer;
-}
-.require {
-  color: red;
-  font-style: italic;
-  font-weight: bold;
-}
-.full {
+.form-box {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  width: 850px;
-  gap: 1.5%;
-  background: transparent;
+  gap: 20px;
+  background: rgba(0, 0, 0, 0.3);
   border: 3px solid grey;
   backdrop-filter: blur(20px);
   box-shadow: 0 0 15px white;
-  color: whitesmoke;
   border-radius: 15px;
-  padding: 30px 30px;
+  padding: 30px;
+  color: whitesmoke;
+  position: relative;
 }
-.img {
-  margin-top: 5%;
+
+.column-left,
+.column-right {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: white;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="file"],
+select {
+  width: 100%;
+  padding: 12px 20px;
+  margin-bottom: 12px;
+  border-radius: 40px;
+  border: 2px solid whitesmoke;
+  background: transparent;
+  color: white;
+  font-size: 14px;
+}
+
+.gender {
+  background-color: black;
+}
+
+.require {
+  color: red;
+  font-style: italic;
+  font-size: 13px;
+}
+
+button.footer {
+  width: 100%;
+  padding: 12px;
+  border-radius: 40px;
+  border: none;
+  background: whitesmoke;
+  color: grey;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+  box-shadow: 0 0 10px grey;
+  grid-column: 1 / -1;
+}
+
+button.footer:hover {
+  background: lime;
+  color: black;
+}
+
+@media (max-width: 1024px) {
+  .container {
+    min-height: 100vh;
+  }
+  .form-box {
+    grid-template-columns: 1fr;
+    max-width: 600px;
+    margin: auto;
+  }
+  h1 {
+    font-size: 36px;
+  }
+  input[type="text"],
+  input[type="password"],
+  input[type="file"],
+  select {
+    color: white;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    min-height: 100vh;
+  }
+  .form-box {
+    grid-template-columns: 1fr;
+    width: 90%;
+    max-width: 400px;
+    padding: 20px;
+  }
+  h1 {
+    font-size: 28px;
+  }
+  button.footer {
+    font-size: 14px;
+  }
+  input[type="text"],
+  input[type="password"],
+  input[type="file"],
+  select {
+    color: white;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    min-height: 100vh;
+  }
+  .form-box {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid whitesmoke;
+  }
+  h1 {
+    font-size: 24px;
+  }
+  input[type="text"],
+  input[type="password"],
+  input[type="file"],
+  select {
+    font-size: 13px;
+    padding: 10px;
+    color: white;
+  }
+  button.footer {
+    font-size: 13px;
+    padding: 10px;
+  }
 }
