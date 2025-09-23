@@ -71,7 +71,7 @@
   position: absolute;
   top: 100%;
   left: 0;
-  background-color: #444;
+  background-color: gray;
   min-width: 200px;
   border-radius: 5px;
   flex-direction: column;
