@@ -70,6 +70,7 @@ $con->close();
     <script>
         function validateForm() {
             var name = document.getElementById("name").value;
+            var num = document.getElementById("num").value;
 
             if (name === "") {
                 alert("Please enter the academy name.");
