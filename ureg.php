@@ -89,8 +89,8 @@ if (isset($_POST['submit'])) {
                     <p class="require"><?= $error['rname'] ?? '' ?></p>
 
                     <label>Gender</label>
-                    <select class=gender id="gender" name=gender">
-                        <option value="select">Select</option>
+                    <select class=gender id="gender" name="gender">
+                        <option value="">Select</option>
                         <option value="male">MALE</option>
                         <option value="female">FEMALE</option>
                         <option value="others">OTHERS</option>
