@@ -35,7 +35,7 @@ $result = mysqli_query($con, $select);
             while ($row = mysqli_fetch_assoc($result)) {
                 echo "
                     <div class='each-sport'>
-                        <img class='image' src='/project_i/" . $row['image'] . "' style='height:180px;border-radius:10px;'>
+                        <img class='image' src='/project_i/" . $row['image'] . "'style='height:180px;width:240px;border-radius:10px;'>
                         <button class='delete'><a href='deleteSports.php?id=" . $row['id'] . "'>Delete</a></button>
                         <div class='name'>
                             <h1>" . $row['name'] . "</h1>

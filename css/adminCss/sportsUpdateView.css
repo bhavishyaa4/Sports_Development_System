@@ -4,25 +4,169 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  gap: 20px;
 }
 
 .start {
-  height: 30px;
-  width: 120px;
-  right: 3%;
-  display: grid;
-  place-items: center;
-  background: transparent;
-  border-radius: 0px;
+  height: 40px;
+  min-width: 150px;
+  background: rgb(240, 8, 240);
+  border: none;
+  border-radius: 8px;
   font-weight: bold;
-  margin-bottom: 1.5%;
-}
-
-.start:hover {
-  background-color: orangered;
+  font-size: 16px;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+  text-decoration: none;
 }
 
 .start a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.start:hover {
+  transform: scale(1.05);
+  background-color: blue;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.table-container {
+  width: 100%;
+  padding: 0 10px;
+  overflow-x: auto;
+  margin-top: 20px;
+  box-sizing: border-box;
+}
+
+table {
+  width: 100%;
+  min-width: 600px;
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+table th,
+table td {
+  padding: 12px 15px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+table th {
+  background-color: #1e90ff;
+  color: white;
+  font-weight: bold;
+}
+
+table tr:nth-child(even) {
+  background-color: #f0f8ff;
+}
+
+table tr:last-child td {
+  border-bottom: none;
+}
+
+.update,
+.delete {
+  height: 30px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  margin: 2px;
+  transition: all 0.2s ease;
+}
+
+.update {
+  background-color: #ffa500;
+  color: white;
+}
+
+.update a {
   color: black;
   text-decoration: none;
+}
+
+.delete {
+  background-color: #ff4500;
+  color: white;
+}
+
+.delete a {
+  color: white;
+  text-decoration: none;
+}
+
+.update:hover {
+  transform: scale(1.05);
+}
+
+.delete:hover {
+  transform: scale(1.05);
+}
+
+@media (max-width: 992px) {
+  .show {
+    width: 95%;
+    gap: 15px;
+  }
+
+  .start {
+    width: 18%;
+    font-size: 14px;
+  }
+
+  table th,
+  table td {
+    padding: 10px 8px;
+    font-size: 14px;
+  }
+
+  .update,
+  .delete {
+    font-size: 12px;
+    padding: 4px 8px;
+  }
+}
+
+@media (max-width: 600px) {
+  .show {
+    width: 100%;
+    gap: 10px;
+  }
+
+  .start {
+    width: 30px;
+    font-size: 14px;
+    height: 45px;
+  }
+
+  .table-container {
+    padding: 0 5px;
+  }
+
+  table th,
+  table td {
+    padding: 8px 5px;
+    font-size: 12px;
+  }
+
+  .update,
+  .delete {
+    font-size: 11px;
+    padding: 3px 6px;
+  }
 }

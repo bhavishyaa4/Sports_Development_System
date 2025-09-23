@@ -64,69 +64,38 @@ if (isset($_POST['savebtn'])) {
 </head>
 
 <body>
-    <form class="f-body" name="form" id="form" method="post" action="" enctype="multipart/form-data">
-        <h1 style="text-align: center;">REGISTER</h1>
-        <div class="info">
-            <div class="first">
-                <h2 style="font-size: 33px;color:rgb(255, 0, 255);">SportZen</h2>
-                <h3 style="padding:0px;margin-left: 15px; margin-top: 30px; color:yellow">ENHANCE</h3>
-                <h3 style="padding:0px;margin-left: 30px;color:orange;">AND</h3>
-                <h3 style="padding:0px;margin-left: 45px;color:yellow;">DEVELOP</h3>
-            </div>
-            <div class="full">
-                <div class="second">
+    <div class="container">
+        <form class="f-body" name="form" id="form" method="post" action="">
+            <h1>UPDATE USER</h1>
+            <div class="form-box">
+                <div class="column-left">
                     <label>Email</label>
                     <input type="text" name="email" id="email" autocomplete="off" placeholder="Enter your email" value="<?php echo $email; ?>" />
-                    <p class="require">
-                        <?php
-                        if (isset($error['remail'])) {
-                            echo $error['remail'];
-                        }
-                        ?>
-                    </p>
+                    <p class="require"><?= $error['remail'] ?? '' ?></p>
+
                     <label>Sports</label>
-                    <input type="text" class="sports" id="sports" name="sports" autocomplete="off" placeholder="Enter sports" value="<?php echo $sports; ?>" />
-                    <p class="require">
-                        <?php
-                        if (isset($error['rsport'])) {
-                            echo $error['rsport'];
-                        }
-                        ?>
-                    </p>
-                    <label class="num">Number</label>
-                    <input type="text" name="number" class="number" id="number" autocomplete="off" placeholder="Enter your number" value="<?php echo $number; ?>" />
-                    <p class="require">
-                        <?php
-                        if (isset($error['rnumber'])) {
-                            echo $error['rnumber'];
-                        }
-                        ?>
-                    </p>
+                    <input type="text" name="sports" id="sports" autocomplete="off" placeholder="Enter sports" value="<?php echo $sports; ?>" />
+                    <p class="require"><?= $error['rsport'] ?? '' ?></p>
+
+                    <label>Number</label>
+                    <input type="text" name="number" id="number" autocomplete="off" placeholder="Enter your number" value="<?php echo $number; ?>" />
+                    <p class="require"><?= $error['rnumber'] ?? '' ?></p>
                 </div>
-                <div class="third">
+
+                <div class="column-right">
                     <label>Name</label>
                     <input type="text" name="name" id="name" autocomplete="off" placeholder="Enter your name" value="<?php echo $name; ?>" />
-                    <p class="require">
-                        <?php
-                        if (isset($error['rname'])) {
-                            echo $error['rname'];
-                        }
-                        ?>
-                    </p>
+                    <p class="require"><?= $error['rname'] ?? '' ?></p>
+
                     <label>Position</label>
-                    <input type="text" name="position" id="position" autocomplete="off" placeholder="Enter your name" value="<?php echo $position; ?>" />
-                    <p class="require">
-                        <?php
-                        if (isset($error['rposition'])) {
-                            echo $error['rposition'];
-                        }
-                        ?>
-                    </p>
+                    <input type="text" name="position" id="position" autocomplete="off" placeholder="Enter your position" value="<?php echo $position; ?>" />
+                    <p class="require"><?= $error['rposition'] ?? '' ?></p>
                 </div>
+
+                <button class="footer" name="savebtn">UPDATE</button>
             </div>
-        </div>
-        <button class="footer" name="savebtn">UPDATE</button>
-    </form>
+        </form>
+    </div>
 </body>
 
 </html>

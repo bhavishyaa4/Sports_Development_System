@@ -106,13 +106,22 @@ $con->close();
                             <p id="error-message"><?php echo $err['name']; ?></p>
                         <?php endif; ?>
                     </span>
-                    <label for="pass">Password</label>
-                    <input type="password" class="password" id="pass" name="password" autocomplete="off" value="">
+
+                    <label for="email">Email</label>
+                    <input type="text" name="email" id="email" autocomplete="off" placeholder="Enter your email" value="">
                     <span id="error">
-                        <?php if (isset($err['password'])): ?>
-                            <p id="error-message"><?php echo $err['password']; ?></p>
+                        <?php if (isset($err['email'])): ?>
+                            <p id="error-message"><?php echo $err['email']; ?></p>
                         <?php endif; ?>
                     </span>
+
+                    <label for="role">Role</label>
+                    <input type="text" name="role" id="role" autocomplete="off" placeholder="Enter your role" value="">
+                    <?php if (isset($err['role'])): ?>
+                        <span id="error">
+                            <p id="error-message"><?php echo $err['role']; ?></p>
+                        </span>
+                    <?php endif; ?>
 
                     <label for="status">Status:</label>
                     <select id="status" name="status">
@@ -125,14 +134,14 @@ $con->close();
                             <p id="error-message"><?php echo $err['status']; ?></p>
                         <?php endif; ?>
                     </span>
-                    <button type="submit" name="submit" class="footer">ADD</button>
                 </div>
+
                 <div class="third">
-                    <label for="email">Email</label>
-                    <input type="text" name="email" id="email" autocomplete="off" placeholder="Enter your email" value="">
+                    <label for="pass">Password</label>
+                    <input type="password" class="password" id="pass" name="password" autocomplete="off" value="">
                     <span id="error">
-                        <?php if (isset($err['email'])): ?>
-                            <p id="error-message"><?php echo $err['email']; ?></p>
+                        <?php if (isset($err['password'])): ?>
+                            <p id="error-message"><?php echo $err['password']; ?></p>
                         <?php endif; ?>
                     </span>
 
@@ -141,17 +150,15 @@ $con->close();
                     <?php if (isset($err['cpass'])): ?>
                         <span id="error">
                             <p id="error-message"><?php echo $err['cpass']; ?></p>
-                        <?php endif; ?>
                         </span>
-                        <label for="role">Role</label>
-                        <input type="text" name="role" id="role" autocomplete="off" placeholder="Enter your role" value="">
-                        <?php if (isset($err['role'])): ?>
-                            <span id="error">
-                                <p id="error-message"><?php echo $err['role']; ?></p>
-                            <?php endif; ?>
+                    <?php endif; ?>
+                    
                 </div>
-                </span>
+                <div class="form-footer">
+                    <button type="submit" name="submit" class="footer">ADD</button>
+                </div>
             </div>
+
             <span id="error">
                 <?php if (isset($err['database'])): ?>
                     <p id="error-message"><?php echo $err['database']; ?></p>
@@ -166,5 +173,6 @@ $con->close();
         </form>
     </div>
 </body>
+
 
 </html>

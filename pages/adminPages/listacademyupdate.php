@@ -1,4 +1,10 @@
 <?php
+session_start();
+if (!isset($_SESSION['admin_id'])) {
+    header('location: ../../first.php?err=1');
+}
+?>
+<?php
 include '../../connect.php';
 $id = $_GET['updateid'];
 $sql = "SELECT * FROM `academy` WHERE id = $id";
@@ -46,57 +52,10 @@ if (isset($_POST['submit'])) {
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="../../images/new_logo.png">
     <link rel="stylesheet" href="../../css/adminCss/updateAcademy.css">
     <title>Admin | Update Academy</title>
-</head>
-
-<body>
-    <div class="container">
-        <?php include __DIR__ . "../../../includes/adminHeader.php" ?>
-    </div>
-    <h1> UPDATE SPORTS ACADEMY:</h1>
-    <div class="first">
-        <div class="second">
-            <form action="" method="post" id="form" name="form" onsubmit="return validateForm()">
-                <div class="info">
-                    <label>Academy Name</label>
-                    <input type="text" name="name" id="name" placeholder="" value="<?php echo $name1; ?>">
-                    <p class="require" style="color:red;font-style:italic;font-size:20px;">
-                        <?php
-                        if (isset($error['rname'])) {
-                            echo $error['rname'];
-                        }
-                        ?>
-                    </p>
-                    <label>Academy Address</label>
-                    <input type="text" name="address" id="address" placeholder="" value="<?php echo $address1; ?>">
-                    <p class="require" style="color:red;font-style:italic;font-size:20px;">
-                        <?php
-                        if (isset($error['raddress'])) {
-                            echo $error['raddress'];
-                        }
-                        ?>
-                    </p>
-                    <label>Academy Number</label>
-                    <input type="text" name="number" id="number" placeholder="" value="<?php echo $number1; ?>">
-                    <p class="require" style="color:red;font-style:italic;font-size:20px;">
-                        <?php
-                        if (isset($error['rnumber'])) {
-                            echo $error['rnumber'];
-                        }
-                        ?>
-                    </p>
-                    <div class="rem">
-                        <label>Status:</label>
-                        <input type="radio" name="status" value="1" <?php if ($status1 == 1) echo "checked"; ?>> Active
-                        <input type="radio" name="status" value="0" <?php if ($status1 == 0) echo "checked"; ?>> De Active
-                    </div>
-                </div>
-                <button type="submit" name="submit" class="footer">UPDATE</button>
-            </form>
-        </div>
-    </div>
     <script>
         function validateName() {
             var nameInput = document.getElementById("name");
@@ -134,6 +93,60 @@ if (isset($_POST['submit'])) {
             return true;
         }
     </script>
+</head>
+
+<body>
+    <div class="container">
+        <?php include __DIR__ . "../../../includes/adminHeader.php" ?>
+        <h1> UPDATE SPORTS ACADEMY:</h1>
+        <div class="first">
+            <div class="second">
+                <form action="" method="post" id="form" name="form" onsubmit="return validateForm()">
+                    <div class="info">
+                        <label>Academy Name</label>
+                        <input type="text" name="name" id="name" placeholder="" value="<?php echo $name1; ?>">
+                        <p class="require" style="color:red;font-style:italic;font-size:20px;">
+                            <?php
+                            if (isset($error['rname'])) {
+                                echo $error['rname'];
+                            }
+                            ?>
+                        </p>
+                    </div>
+                    <div class="info">
+                        <label>Academy Address</label>
+                        <input type="text" name="address" id="address" placeholder="" value="<?php echo $address1; ?>">
+                        <p class="require" style="color:red;font-style:italic;font-size:20px;">
+                            <?php
+                            if (isset($error['raddress'])) {
+                                echo $error['raddress'];
+                            }
+                            ?>
+                        </p>
+                    </div>
+                    <div class="info">
+                        <label>Academy Number</label>
+                        <input type="text" name="number" id="number" placeholder="" value="<?php echo $number1; ?>">
+                        <p class="require" style="color:red;font-style:italic;font-size:20px;">
+                            <?php
+                            if (isset($error['rnumber'])) {
+                                echo $error['rnumber'];
+                            }
+                            ?>
+                        </p>
+                    </div>
+                    <div class="rem">
+                        <label>Status:</label>
+                        <input type="radio" name="status" value="1" <?php if ($status1 == 1) echo "checked"; ?>> Active
+                        <input type="radio" name="status" value="0" <?php if ($status1 == 0) echo "checked"; ?>> De Active
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" name="submit" class="footer">UPDATE</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>

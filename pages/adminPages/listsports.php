@@ -83,46 +83,48 @@ if (isset($_SESSION['deleted_academy'])) {
         <?php require __DIR__  . "../../../includes/adminHeader.php" ?>
         <div class="show">
             <button class="start"><a href="addsports.php">ADD ACADEMY</a></button>
-            <table border="1s">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>NAME</th>
-                        <th>STATUS</th>
-                        <th>ADDRESS</th>
-                        <th>MOBILE</th>
-                        <th>OPERATION</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-                    $sql = "SELECT * FROM academy";
-                    $result = $con->query($sql);
-                    if ($result && $result->num_rows > 0) {
-                        while ($row = $result->fetch_assoc()) {
-                            $id = $row['id'];
-                            $name = $row['name'];
-                            $status = $row['status'];
-                            $address = $row['address'];
-                            $number = $row['number'];
-                            echo '<tr>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>NAME</th>
+                            <th>STATUS</th>
+                            <th>ADDRESS</th>
+                            <th>MOBILE</th>
+                            <th>OPERATION</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $sql = "SELECT * FROM academy";
+                        $result = $con->query($sql);
+                        if ($result && $result->num_rows > 0) {
+                            while ($row = $result->fetch_assoc()) {
+                                $id = $row['id'];
+                                $name = $row['name'];
+                                $status = $row['status'];
+                                $address = $row['address'];
+                                $number = $row['number'];
+                                echo '<tr>
                             <th>' . $id . '</th>
                             <td>' . $name . '</td>
                             <td>' . $status . '</td>
                             <td>' . $address . '</td>
                             <td>' . $number . '</td>
                             <td>
-                                <button class="update"><a href="./listacademyupdate.php?updateid=' . $id . '">UPDATE</a></button>
-                                <button class="delete"><a href="./listacademydelete.php?deleteid=' . $id . '">DELETE</a></button>
+                                <button class="update"><a href="./listacademyupdate.php?updateid=' . $id . '">Update</a></button>
+                                <button class="delete"><a href="./listacademydelete.php?deleteid=' . $id . '">Delete</a></button>
                             </td>
                         </tr>';
+                            }
+                        } else {
+                            echo '<tr><td colspan="6">No sports academies found.</td></tr>';
                         }
-                    } else {
-                        echo '<tr><td colspan="6">No sports academies found.</td></tr>';
-                    }
-                    ?>
-                </tbody>
-            </table>
+                        ?>
+                    </tbody>
+                </table>
+            </div>
             <?php
             if (isset($success)) {
                 echo '<div style="color:green;">' . $success . '</div>';

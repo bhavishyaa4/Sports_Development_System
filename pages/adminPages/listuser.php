@@ -23,33 +23,34 @@ include '../../connect.php';
         <?php include __DIR__ . "../../../includes/adminHeader.php" ?>
         <div class="show">
             <button type="submit" class="start"><a href="../../ureg.php">Add User</a> </button>
-            <table border="1" cellspacing="0">
-                <thead>
-                    <tr style="font-weight: bold;">
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Gender</th>
-                        <th>Number</th>
-                        <th>Sports</th>
-                        <th>Position</th>
-                        <th>Operations</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-                    $sql = "SELECT * FROM `user_register`";
-                    $result1 = mysqli_query($con, $sql);
-                    if ($result1) {
-                        while ($row = mysqli_fetch_assoc($result1)) {
-                            $id = $row['id'];
-                            $uname = $row['name'];
-                            $email = $row['email'];
-                            $gender = $row['gender'];
-                            $mobile = $row['number'];
-                            $sports = $row['sports'];
-                            $position = $row['position'];
-                            echo '
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr style="font-weight: bold;">
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Gender</th>
+                            <th>Number</th>
+                            <th>Sports</th>
+                            <th>Position</th>
+                            <th>Operations</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $sql = "SELECT * FROM `user_register`";
+                        $result1 = mysqli_query($con, $sql);
+                        if ($result1) {
+                            while ($row = mysqli_fetch_assoc($result1)) {
+                                $id = $row['id'];
+                                $uname = $row['name'];
+                                $email = $row['email'];
+                                $gender = $row['gender'];
+                                $mobile = $row['number'];
+                                $sports = $row['sports'];
+                                $position = $row['position'];
+                                echo '
                 <tr>
                 <td>' . $id . '</td>
                 <td>' . $uname . '</td>
@@ -63,10 +64,11 @@ include '../../connect.php';
                 <button class="delete"><a href ="listuserdelete.php?deleteid=' . $id . '">Delete</a></button>
                 </td>
             </tr>';
-                        }
-                    } ?>
-                </tbody>
-            </table>
+                            }
+                        } ?>
+                    </tbody>
+                </table>
+            </div>
         </div>
 </body>
 

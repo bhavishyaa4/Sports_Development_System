@@ -60,11 +60,6 @@
   max-width: 400px;
 }
 
-.logout-link:hover {
-  background-color: orangered;
-  color: white;
-}
-
 .dropdown-menu {
   display: none;
   position: absolute;
