@@ -70,11 +70,13 @@ if (isset($_POST['btn'])) {
             <?php if (isset($_GET['err']) && $_GET['err'] == 1) { ?>
                 <p class="err_msg">LOG-IN TO CONTINUE...</p>
             <?php } ?>
-            <label>Email</label>
-            <input type="text" name="email" id="email" autocomplete="off" placeholder="Email" value="<?php echo isset($email) ? $email : '' ?>" />
-            <?php if (isset($err['email'])) { ?>
-                <span class="w"><?php echo $err['email'] ?></span>
-            <?php } ?>
+            <div style="margin-bottom: 12px;">
+                <label>Email</label>
+                <input type="text" name="email" id="email" autocomplete="off" placeholder="Email" value="<?php echo isset($email) ? $email : '' ?>" />
+                <?php if (isset($err['email'])) { ?>
+                    <span class="w"><?php echo $err['email'] ?></span>
+                <?php } ?>
+            </div>
             <label>Password</label>
             <input type="password" name="pass" id="pass" placeholder="Password" value="<?php echo isset($password) ? $password : '' ?>" />
             <?php if (isset($err['pass'])) { ?>
